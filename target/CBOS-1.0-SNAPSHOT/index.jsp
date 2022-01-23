@@ -42,9 +42,6 @@
             <br>
             <br>
             <div class="text-center p-t-12">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;
                 <a href="#">Create Account
                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                 </a>
@@ -62,7 +59,6 @@
     <a href="uploadpayment.jsp">upload payment</a>
     <a href="updatetrackingnum.jsp">update track</a>
     <a href="booklistedit.jsp">edit book</a>
-    <a href="listbook.jsp">listbook to edit</a>
 </center>
 </body>
 </html>
