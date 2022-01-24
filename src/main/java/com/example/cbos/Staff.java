@@ -1,14 +1,19 @@
 package com.example.cbos;
 
-public class Staff {
-    public Integer staff_id;
+public class Staff implements java.io.Serializable
+{
+    public String staff_id;
     public String staff_password;
     public String staff_name;
     public String staff_email;
     public String staff_address;
     public String staff_phoneNumber;
 
-    public Staff (Integer staffid, String staffpass, String staffname, String staffemail, String staffadd, String staffphone ){
+    public Staff(){
+
+    }
+
+    public Staff (String staffid, String staffpass, String staffname, String staffemail, String staffadd, String staffphone ){
         staff_id=staffid;
         staff_password=staffpass;
         staff_name=staffname;
@@ -17,11 +22,11 @@ public class Staff {
         staff_phoneNumber=staffphone;
     }
 
-    public Integer getStaff_id() {
+    public String getStaff_id() {
         return staff_id;
     }
 
-    public void setStaff_id(Integer staff_id) {
+    public void setStaff_id(String staff_id) {
         this.staff_id = staff_id;
     }
 
