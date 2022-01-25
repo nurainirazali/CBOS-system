@@ -48,7 +48,7 @@ public class StaffRegisServlet extends HttpServlet {
             //nk testing keluar masuk data pastikan xampp, heroku , database connected
 
             Class.forName("org.postgresql.Driver"); // ni stay
-            String dbURL = "jdbc:postgresql://localhost:5432/postgres"; //ni url dri heroku database
+            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3"; //ni url dri heroku database
             String user = "qoyqwxbjtgaycf"; //ni user dri heroku database
             String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff"; //ni password dri heroku database
             Connection conn = DriverManager.getConnection(dbURL, user, pass);

@@ -28,7 +28,9 @@
     }
 </style>
 
-<body style="background-color:#D7EAE8;padding-top: 50px;">
+<body style="background-color:#D7EAE8;">
+<%@include file="navbar.html"%>
+<br>
 <center>
     <div class="container">
         <h1>Account Profile</h1>

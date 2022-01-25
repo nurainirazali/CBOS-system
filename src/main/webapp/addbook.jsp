@@ -30,8 +30,10 @@
     }
 </style>
 
-<body style="background-color:#D7EAE8;padding-top: 50px;">
+<body style="background-color:#D7EAE8;">
+<%@include file="navbar.html"%>
 <center>
+    <br>
     <div class="container">
         <h1>Add Book</h1>
 
