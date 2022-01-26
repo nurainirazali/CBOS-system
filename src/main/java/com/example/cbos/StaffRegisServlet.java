@@ -55,7 +55,7 @@ public class StaffRegisServlet extends HttpServlet {
             // klau buat postgress atas2 ni amik yg details dri heroku
 
             PreparedStatement st;
-            String query="INSERT INTO staffs (staff_id, staff_name, staff_email, staff_address, staff_phonenumber, staff_password, managerid, book_id) VALUES (?,?,?,?,?,?)";
+            String query="INSERT INTO staffs (staff_id, staff_name, staff_email, staff_address, staff_phonenumber, staff_password) VALUES (?,?,?,?,?,?)";
             st = conn.prepareStatement(query);
             st.setString(1,stfid);
             st.setString(2,stfname);
