@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 @WebServlet(name = "StaffRegisServlet", value = "/StaffRegisServlet")
 public class StaffRegisServlet extends HttpServlet {
@@ -26,7 +25,6 @@ public class StaffRegisServlet extends HttpServlet {
             String stfdress = request.getParameter("ldress");
             String stfmail = request.getParameter("lmail");
             String stfnum = request.getParameter ("lnum");
-
 
             //nk testing keluar masuk data pastikan xampp, heroku , database connected
             Class.forName("org.postgresql.Driver"); // ni stay
@@ -49,6 +47,8 @@ public class StaffRegisServlet extends HttpServlet {
 
             if(row>0){
                 out.println("Record inserted");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("createaccStff.jsp");;
+                dispatcher.forward (request, response);
             }else{
                 out.println("Record failed");
             }
