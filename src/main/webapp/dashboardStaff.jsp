@@ -10,7 +10,11 @@
 <head>
     <title>Dashboard</title>
 </head>
-<body>
-
+<body style="background-color:#D7EAE8;">
+<%@include file="navbar.html"%>
+<%
+    String name=(String)session.getAttribute("staffid");
+    out.print("Hello User "+name);
+%>
 </body>
 </html>
