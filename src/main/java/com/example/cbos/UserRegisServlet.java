@@ -39,10 +39,10 @@ public class UserRegisServlet extends HttpServlet {
             st = conn.prepareStatement(query);
             st.setString(1,usrfid);
             st.setString(2,usrname);
-            st.setString(3,usrpass);
+            st.setString(3,usrmail);
             st.setString(4,usrdress);
-            st.setString(5,usrmail);
-            st.setString(6,usrnum);
+            st.setString(5,usrnum);
+            st.setString(6,usrpass);
             int row= st.executeUpdate();//return no of row effected
 
             if(row>0){

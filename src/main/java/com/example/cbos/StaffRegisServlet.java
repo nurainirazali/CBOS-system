@@ -39,10 +39,10 @@ public class StaffRegisServlet extends HttpServlet {
             st = conn.prepareStatement(query);
             st.setString(1,stfid);
             st.setString(2,stfname);
-            st.setString(3,stfpass);
+            st.setString(3,stfmail);
             st.setString(4,stfdress);
-            st.setString(5,stfmail);
-            st.setString(6,stfnum);
+            st.setString(5,stfnum);
+            st.setString(6,stfpass);
             int row= st.executeUpdate();//return no of row effected
 
             if(row>0){

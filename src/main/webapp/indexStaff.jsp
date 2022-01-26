@@ -35,7 +35,7 @@
             <label for="fname">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="lname">Password &nbsp;</label>
-            <input type="text" id="lname" name="lname"><br><br><br>
+            <input type="password" id="lname" name="lname"><br><br><br>
             <input type="submit" value="Login">
             <br>
             <br>

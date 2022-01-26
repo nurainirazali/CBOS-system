@@ -11,6 +11,9 @@
     <title>Dashboard</title>
 </head>
 <body>
-
+<%
+    String name=(String)session.getAttribute("userid");
+    out.print("Hello User "+name);
+%>
 </body>
 </html>

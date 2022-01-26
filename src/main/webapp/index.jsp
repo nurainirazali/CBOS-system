@@ -35,7 +35,7 @@
             <label for="fid">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
             <input type="text" id="fid" name="fid"><br><br>
             <label for="lpass">Password &nbsp;</label>
-            <input type="text" id="lpass" name="lpass"><br><br><br>
+            <input type="password" id="lpass" name="lpass"><br><br><br>
             <input type="submit" value="Login">
             <br>
             <br>
