@@ -31,7 +31,6 @@
 <center>
     <div class="container">
         <h1>Create Account</h1>
-
         <img src="https://cdn-icons-png.flaticon.com/512/194/194931.png"  style="width:154px;height:152px;">
         <h3>User</h3>
         <br>

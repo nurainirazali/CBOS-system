@@ -47,7 +47,7 @@ public class UserRegisServlet extends HttpServlet {
 
             if(row>0){
                 out.println("Record inserted");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("indexStaff.jsp");
                 dispatcher.forward (request, response);
             }else{
                 out.println("Record failed");
