@@ -20,14 +20,17 @@
     }
 </style>
 
-<body style="background-color:#D7EAE8;padding-top: 50px;">
+<body style="background-color:#D7EAE8;">
 <%@include file="indexbar.html"%>
+<br>
 <center>
     <div class="container">
         <h1>LOGIN ACCOUNT</h1>
 
         <img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/271818214_359858489195274_8560785430061830537_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=730e14&_nc_ohc=buLq4AKuapoAX_uKuwN&_nc_ht=scontent.xx&oh=00_AT-fm0bfbSTVeRebAc3gyuwOBorehmDUHS36KLLdicb4AA&oe=61EB0A15"  style="width:154px;height:152px;">
-            <br><br>
+            <br>
+            <h2>Staff</h2>
+            <br>
             <label for="fname">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="lname">Password &nbsp;</label>
