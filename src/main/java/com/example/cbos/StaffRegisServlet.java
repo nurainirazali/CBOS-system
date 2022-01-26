@@ -5,30 +5,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 @WebServlet(name = "StaffRegisServlet", value = "/StaffRegisServlet")
 public class StaffRegisServlet extends HttpServlet {
-
-    public StaffRegisServlet() {
-        super();
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(); // if nk wujudkan session mcm sir buat
-
-        // tarik value dri form dalam jsp lalu kot javascript bawah tu
-        String sffid = (String) session.getAttribute("sdid");
-        String sffname = (String) session.getAttribute("sdName");
-        String sffpass = (String) session.getAttribute("sdEmail");
-        String sffmail = (String) session.getAttribute("sdPnum");
-        String sffdress = (String) session.getAttribute("sdPnum");
-        String sffnum = (String) session.getAttribute("sdPnum");
-
-        //masukkan value ke dlm java class StudentDetails
-        Staff stf = new Staff(sffid, sffname, sffpass, sffmail, sffdress, sffnum);
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +29,6 @@ public class StaffRegisServlet extends HttpServlet {
 
 
             //nk testing keluar masuk data pastikan xampp, heroku , database connected
-
             Class.forName("org.postgresql.Driver"); // ni stay
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3"; //ni url dri heroku database
             String user = "qoyqwxbjtgaycf"; //ni user dri heroku database
