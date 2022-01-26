@@ -54,23 +54,6 @@
         </form>
     </div>
 </center>
-<%
-    String mytext = request.getParameter("fid");
-
-    if(mytext == null){
-
-    }
-    else{
-        session.setAttribute("stid",request.getParameter("fid"));
-        session.setAttribute("stname",request.getParameter("lname"));
-        session.setAttribute("stpass",request.getParameter("lpass"));
-        session.setAttribute("stdress",request.getParameter("ldress"));
-        session.setAttribute("stmail",request.getParameter("lmail"));
-        session.setAttribute("stnum",request.getParameter("lnum"));
-
-        out.println("session created");
-    }
-%>
 </body>
 </html>
 
