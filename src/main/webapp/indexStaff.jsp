@@ -1,3 +1,4 @@
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -30,6 +31,7 @@
             <br>
             <h2>Staff</h2>
             <br>
+        <form action="StaffLogin.jsp" method="post">
             <label for="fname">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="lname">Password &nbsp;</label>
@@ -42,6 +44,7 @@
                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                 </a>
             </div>
+        </form>
     </div>
 </center>
 </body>

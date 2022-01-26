@@ -1,3 +1,4 @@
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -26,15 +27,15 @@
 <center>
     <div class="container">
         <h1>LOGIN ACCOUNT</h1>
-
         <img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/271818214_359858489195274_8560785430061830537_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=730e14&_nc_ohc=buLq4AKuapoAX_uKuwN&_nc_ht=scontent.xx&oh=00_AT-fm0bfbSTVeRebAc3gyuwOBorehmDUHS36KLLdicb4AA&oe=61EB0A15"  style="width:154px;height:152px;">
             <br>
             <h2>User</h2>
             <br>
-            <label for="fname">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">Password &nbsp;</label>
-            <input type="text" id="lname" name="lname"><br><br><br>
+        <form action="UserLogin.jsp" method="post">
+            <label for="fid">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+            <input type="text" id="fid" name="fid"><br><br>
+            <label for="lpass">Password &nbsp;</label>
+            <input type="text" id="lpass" name="lpass"><br><br><br>
             <input type="submit" value="Login">
             <br>
             <br>
@@ -43,6 +44,7 @@
                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                 </a>
             </div>
+        </form>
     </div>
 </center>
 </body>
