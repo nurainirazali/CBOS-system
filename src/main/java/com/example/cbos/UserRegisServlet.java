@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-@WebServlet(name = "StaffRegisServlet", value = "/StaffRegisServlet")
-public class StaffRegisServlet extends HttpServlet {
+@WebServlet(name = "UserRegisServlet", value = "/UserRegisServlet")
+public class UserRegisServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,12 +19,12 @@ public class StaffRegisServlet extends HttpServlet {
 
         try{
             //  dlm parameter ni pastikan nama sama dalam form jsp name=""
-            String stfid   = request.getParameter("fid");
-            String stfname   = request.getParameter("lname");
-            String stfpass = request.getParameter("lpass");
-            String stfdress = request.getParameter("ldress");
-            String stfmail = request.getParameter("lmail");
-            String stfnum = request.getParameter ("lnum");
+            String usrfid   = request.getParameter("fid");
+            String usrname   = request.getParameter("lname");
+            String usrpass = request.getParameter("lpass");
+            String usrdress = request.getParameter("ldress");
+            String usrmail = request.getParameter("lmail");
+            String usrnum = request.getParameter ("lnum");
 
             //nk testing keluar masuk data pastikan xampp, heroku , database connected
             Class.forName("org.postgresql.Driver"); // ni stay
@@ -35,14 +35,14 @@ public class StaffRegisServlet extends HttpServlet {
             // klau buat postgress atas2 ni amik yg details dri heroku
 
             PreparedStatement st;
-            String query="INSERT INTO staffs (staff_id, staff_name, staff_email, staff_address, staff_phonenumber, staff_password) VALUES (?,?,?,?,?,?)";
+            String query="INSERT INTO users (user_id, user_name, user_email, user_address, user_phonenumber, user_password) VALUES (?,?,?,?,?,?)";
             st = conn.prepareStatement(query);
-            st.setString(1,stfid);
-            st.setString(2,stfname);
-            st.setString(3,stfpass);
-            st.setString(4,stfdress);
-            st.setString(5,stfmail);
-            st.setString(6,stfnum);
+            st.setString(1,usrfid);
+            st.setString(2,usrname);
+            st.setString(3,usrpass);
+            st.setString(4,usrdress);
+            st.setString(5,usrmail);
+            st.setString(6,usrnum);
             int row= st.executeUpdate();//return no of row effected
 
             if(row>0){
