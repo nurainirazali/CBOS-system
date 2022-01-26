@@ -42,7 +42,7 @@
             <br>
             <br>
             <div class="text-center p-t-12">
-                <a href="#">Create Account
+                <a href="createaccStff.jsp">Create Account
                     <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                 </a>
             </div>
