@@ -15,10 +15,11 @@ public class StaffRegisServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
+        HttpSession session=request.getSession();
         PrintWriter out = response.getWriter();
 
         try{
-            //  dlm parameter ni pastikan nama sama dalam form jsp name=""
+
             String stfid   = request.getParameter("fid");
             String stfname   = request.getParameter("lname");
             String stfpass = request.getParameter("lpass");
@@ -26,13 +27,12 @@ public class StaffRegisServlet extends HttpServlet {
             String stfmail = request.getParameter("lmail");
             String stfnum = request.getParameter ("lnum");
 
-            //nk testing keluar masuk data pastikan xampp, heroku , database connected
-            Class.forName("org.postgresql.Driver"); // ni stay
-            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3"; //ni url dri heroku database
-            String user = "qoyqwxbjtgaycf"; //ni user dri heroku database
-            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff"; //ni password dri heroku database
+
+            Class.forName("org.postgresql.Driver");
+            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+            String user = "qoyqwxbjtgaycf";
+            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
-            // klau buat postgress atas2 ni amik yg details dri heroku
 
             PreparedStatement st;
             String query="INSERT INTO staffs (staff_id, staff_name, staff_email, staff_address, staff_phonenumber, staff_password) VALUES (?,?,?,?,?,?)";
@@ -43,7 +43,7 @@ public class StaffRegisServlet extends HttpServlet {
             st.setString(4,stfdress);
             st.setString(5,stfnum);
             st.setString(6,stfpass);
-            int row= st.executeUpdate();//return no of row effected
+            int row= st.executeUpdate();
 
             if(row>0){
                 out.println("Record inserted");

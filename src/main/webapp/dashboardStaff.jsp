@@ -14,7 +14,7 @@
 <%@include file="navbar.html"%>
 <%
     String name=(String)session.getAttribute("staffid");
-    out.print("Hello User "+name);
+    out.print("Hello Staff "+name);
 %>
 </body>
 </html>
