@@ -20,7 +20,22 @@
         border-style:solid;
     }
 </style>
-
+<script>
+    function demo(){
+        if (document.loginS.fid.value == ""){
+            alert ( "Please enter the User ID." );
+            document.getElementById("fid").focus();
+            return false;
+        }
+        if (document.loginS.lpass.value == ""){
+            alert ( "Please enter the password." );
+            document.getElementById("lpass").focus();
+            return false;
+        }
+        alert ( "Welcome User thanks for login" );
+        return true;
+    }
+</script>
 <body style="background-color:#D7EAE8;">
 <%@include file="indexbar.html"%>
 <br>

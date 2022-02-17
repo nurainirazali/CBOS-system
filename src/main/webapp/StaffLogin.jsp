@@ -9,9 +9,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-
-
 <%
     String staffid = request.getParameter("fid");
     String pwd = request.getParameter("lpass");
@@ -35,22 +32,3 @@
         response.sendRedirect("indexStaff.jsp");
     }
 %>
-<head>
-    <script>
-        function demo(){
-            if (document.loginS.fid.value == ""){
-                alert ( "Please enter the User ID." );
-                document.getElementById("fid").focus();
-                return false;
-            }
-            if (document.loginS.lpass.value == ""){
-                alert ( "Please enter the password." );
-                document.getElementById("lpass").focus();
-                return false;
-            }
-            alert ( "Welcome User thanks for login" );
-            return true;
-        }
-    </script>
-</head>
-</html>
