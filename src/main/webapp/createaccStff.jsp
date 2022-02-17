@@ -46,7 +46,7 @@
             <label for="ldress">Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="ldress" name="ldress"><br><br>
             <label for="lnum">Phone Number :</label>
-            <input type="text" id="lnum" name="lnum"><br><br><br>
+            <input type="text" id="lnum" name="lnum"><br><br>
             <label for="lpass">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="password" id="lpass" name="lpass"><br><br>
             <input type="submit" value="Create" >
