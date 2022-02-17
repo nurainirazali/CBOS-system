@@ -18,7 +18,6 @@ public class UserRegisServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try{
-            //  dlm parameter ni pastikan nama sama dalam form jsp name=""
             String usrfid   = request.getParameter("fid");
             String usrname   = request.getParameter("lname");
             String usrpass = request.getParameter("lpass");
@@ -26,13 +25,13 @@ public class UserRegisServlet extends HttpServlet {
             String usrmail = request.getParameter("lmail");
             String usrnum = request.getParameter ("lnum");
 
-            //nk testing keluar masuk data pastikan xampp, heroku , database connected
-            Class.forName("org.postgresql.Driver"); // ni stay
-            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3"; //ni url dri heroku database
-            String user = "qoyqwxbjtgaycf"; //ni user dri heroku database
-            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff"; //ni password dri heroku database
+
+            Class.forName("org.postgresql.Driver");
+            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+            String user = "qoyqwxbjtgaycf";
+            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
-            // klau buat postgress atas2 ni amik yg details dri heroku
+
 
             PreparedStatement st;
             String query="INSERT INTO users (user_id, user_name, user_email, user_address, user_phonenumber, user_password) VALUES (?,?,?,?,?,?)";

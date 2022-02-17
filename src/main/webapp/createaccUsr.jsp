@@ -39,14 +39,14 @@
             <input type="text" id="fname" name="fid"><br><br>
             <label for="lname">Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="lname" name="lname"><br><br>
-            <label for="lpass">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="password" id="lpass" name="lpass"><br><br>
-            <label for="ldress">Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="ldress" name="ldress"><br><br>
             <label for="lmail">Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="email" id="lmail" name="lmail"><br><br>
+            <label for="ldress">Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="ldress" name="ldress"><br><br>
             <label for="lnum">Phone Number :</label>
-            <input type="text" id="lnum" name="lnum"><br><br><br>
+            <input type="text" id="lnum" name="lnum"><br><br>
+            <label for="lpass">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="password" id="lpass" name="lpass"><br><br>
             <input type="submit" value="Create">
         </form>
     </div>
