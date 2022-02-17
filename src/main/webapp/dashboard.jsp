@@ -11,7 +11,7 @@
     <title>Dashboard</title>
 </head>
 <body style="background-color:#D7EAE8;">
-<%@include file="navbar.html"%>
+<%@include file="navbaruser.html"%>
 <%
     String name=(String)session.getAttribute("userid");
     out.print("Hello User "+name);

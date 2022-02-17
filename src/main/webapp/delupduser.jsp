@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 17/1/2022
@@ -37,9 +40,22 @@
         <img src="https://cdn-icons-png.flaticon.com/512/194/194931.png"  style="width:154px;height:152px;">
         <h3>User</h3>
         <br>
-        <form>
+        <%
+            session.getAttribute("fid");
+            String userid = request.getParameter("fid");
+            Class.forName("org.postgresql.Driver"); // ni stay
+            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3"; //ni url dri heroku database
+            String user = "qoyqwxbjtgaycf"; //ni user dri heroku database
+            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff"; //ni password dri heroku database
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            Statement st = conn.createStatement();
+            ResultSet rs;
+            rs = st.executeQuery("select * from users where user_id='" + userid );
+        %>
+        <form action="delupduser.jsp" method="post">
             <label for="fname">ID :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="fname" name="fname"><br><br>
+            <input type="text" id="fname" name="fid"><br><br>
             <label for="lname">Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="lname" name="lname"><br><br>
             <label for="lpass">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>

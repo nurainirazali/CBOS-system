@@ -27,16 +27,16 @@
 <center>
     <div class="container">
         <h1>LOGIN ACCOUNT</h1>
-        <img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/271818214_359858489195274_8560785430061830537_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=730e14&_nc_ohc=buLq4AKuapoAX_uKuwN&_nc_ht=scontent.xx&oh=00_AT-fm0bfbSTVeRebAc3gyuwOBorehmDUHS36KLLdicb4AA&oe=61EB0A15"  style="width:154px;height:152px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/194/194931.png"  style="width:154px;height:152px;">
             <br>
             <h2>Staff</h2>
             <br>
-        <form action="StaffLogin.jsp" method="post">
+        <form action="StaffLogin.jsp" method="post" name="loginS" onsubmit="return demo();">
             <label for="fid">Id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
             <input type="text" id="fid" name="fid"><br><br>
             <label for="lpass">Password &nbsp;</label>
             <input type="password" id="lpass" name="lpass"><br><br><br>
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" name="submit">
             <br>
             <br>
             <div class="text-center p-t-12">
