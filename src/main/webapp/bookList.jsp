@@ -25,41 +25,10 @@
         border-radius: 5px;
         background-color: white;
         padding: 20px 0 30px 0;
-        width: 60%;
+        width: 90%;
         border: 2px grey;
         border-style:solid;
         height:auto;
-    }
-
-    hr.solid {
-        border-top: 3px solid #bbb;
-    }
-
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 200px;
-        margin: auto;
-        text-align: center;
-    }
-
-    .price {
-        color: grey;
-        font-size: 18px;
-    }
-
-    .card button {
-        border: none;
-        outline: 0;
-        padding: 12px;
-        color: white;
-        background-color: #8CCBC8;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    .card button:hover {
-        opacity: 0.7;
     }
     table {
         font-family: arial, sans-serif;
