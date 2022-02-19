@@ -37,7 +37,7 @@
     <div class="container">
         <h1>Add Book</h1>
         <form method="post" action="BookAddServlet">
-            <label for="fname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book ID :</label>
+            <label for="fname">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book ID :</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="ltitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title :</label>
             <input type="text" id="ltitle" name="lname"><br><br>
@@ -54,7 +54,7 @@
             <label for="lstock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock :</label>
             <input type="number" id="lstock" name="lstock"><label> pcs</label><br><br>
             <label for="lpubdate">Publish Date :</label>
-            <input type="text" id="lpubdate" name="lpubdate"><br><br>
+            <input type="date" id="lpubdate" name="lpubdate"><br><br>
             <label for="myFile">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book Cover :</label>
             <input type="file" id="myFile" name="limage" accept="image/jpeg, image/png, image/jpg"><br><br><br>
             <input type="submit" value="Add">
