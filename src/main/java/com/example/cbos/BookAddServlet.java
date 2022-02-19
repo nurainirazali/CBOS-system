@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 @WebServlet(name = "BookAddServlet", value = "/BookAddServlet")
 @MultipartConfig(
@@ -37,7 +38,8 @@ public class BookAddServlet extends HttpServlet {
             int lstock=Integer.parseInt(request.getParameter("lstock"));
             String lname=request.getParameter("lname");
             String lisbn=request.getParameter("lisbn");
-            Date lpubdate=Date.valueOf(request.getParameter("lpubdate"));
+            String pubdate=request.getParameter("lpubdate");
+            Date lpubdate= (Date) new SimpleDateFormat("dd/MM/yyyy").parse(pubdate);
             String ldes=request.getParameter("ldes");
             String lpub=request.getParameter("lpub");
             int lprice=Integer.parseInt(request.getParameter("lprice"));
