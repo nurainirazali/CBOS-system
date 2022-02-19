@@ -85,7 +85,8 @@ public class BookAddServlet extends HttpServlet {
             st.setInt(3, lstock);
             st.setString(4, lname);
             st.setString(5, lisbn);
-            st.setDate(6, lpubdate);
+            java.sql.Date sqlDate = new java.sql.Date(lpubdate.getTime());
+            st.setDate(6,sqlDate);
             st.setString(7, lpub);
             st.setInt(8, lprice);
             st.setString(9, staffid);
