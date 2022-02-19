@@ -99,6 +99,7 @@ public class BookAddServlet extends HttpServlet {
             else
             {
                 out.println("Not successfully");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("addbook.jsp");
             }
         }catch(Exception e){
             out.println(e);
