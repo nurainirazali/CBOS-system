@@ -37,10 +37,10 @@
     <div class="container">
         <h1>Add Book</h1>
         <form method="post" action="BookAddServlet" enctype="multipart/form-data">
-            <label for="fname">Book ID :</label>
-            <input type="text" id="fname" name="fname"><br><br>
+            <label for="fid">Book ID :</label>
+            <input type="text" id="fid" name="fid"><br><br>
             <label for="ltitle">Title :</label>
-            <input type="text" id="ltitle" name="lname"><br><br>
+            <input type="text" id="ltitle" name="ltitle"><br><br>
             <label for="lname">Author Name :</label>
             <input type="text" id="lname" name="lname"><br><br>
             <label for="lpub">Publisher :</label>
