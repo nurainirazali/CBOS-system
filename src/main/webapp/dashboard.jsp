@@ -54,6 +54,7 @@
         String name=(String)session.getAttribute("userid");
         out.print("Hello User "+name);
     %>
+<center>
     <br>
     <div class="container">
         <h1>Click Us Book System</h1>
@@ -105,5 +106,6 @@
             }
         %>
     </table>
+</center>
 </body>
 </html>
