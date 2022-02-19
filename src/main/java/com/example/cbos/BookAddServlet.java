@@ -35,7 +35,7 @@ public class BookAddServlet extends HttpServlet {
 
         try{
             String staffid= (String)session.getAttribute("staffid");
-            String fid=request.getParameter("fid");
+            int fid=Integer.parseInt(request.getParameter("fid"));
             String ltitle=request.getParameter("ltitle");
             String lstock=request.getParameter("lstock");
             String lname=request.getParameter("lname");
@@ -81,7 +81,7 @@ public class BookAddServlet extends HttpServlet {
             }
 
             st = conn.prepareStatement("insert into BOOKS (book_id, book_title, book_stock, book_author, book_isbn, book_publishdate, book_publisher, book_price,STAFF_ID, book_cover,book_description) values (?,?,?,?,?,?,?,?,?,?,?)");
-            st.setString(1, fid);
+            st.setInt(1, fid);
             st.setString(2, ltitle);
             st.setString(3, lstock);
             st.setString(4, lname);
