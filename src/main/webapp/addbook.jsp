@@ -36,7 +36,7 @@
     <br>
     <div class="container">
         <h1>Add Book</h1>
-        <form method="post" action="BookAddServlet">
+        <form method="post" action="BookAddServlet" enctype="multipart/form-data">
             <label for="fname">Book ID :</label>
             <input type="text" id="fname" name="fname"><br><br>
             <label for="ltitle">Title :</label>
