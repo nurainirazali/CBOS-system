@@ -85,7 +85,7 @@ public class BookAddServlet extends HttpServlet {
             st.setString(6, lpubdate);
             st.setString(7, lpub);
             st.setString(8, lprice);
-            st.setString(9,staffid);
+            st.setString(9, staffid);
             st.setString(10,urlPathForDB);
             st.setString(11,ldes);
             int count = st.executeUpdate();

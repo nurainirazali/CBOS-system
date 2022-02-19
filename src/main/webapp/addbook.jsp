@@ -54,7 +54,7 @@
             <label for="lstock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock :</label>
             <input type="number" id="lstock" name="lstock"><label> pcs</label>
             <label for="lpubdate">Publish Date :</label>
-            <input type="date" id="lpubdate" name="lpubdate"><br><br>
+            <input type="text" id="lpubdate" name="lpubdate"><br><br>
             <label for="myFile">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book Cover :</label>
             <input type="file" id="myFile" name="limage" accept="image/jpeg, image/png, image/jpg"><br><br><br>
             <input type="submit" value="Add">
