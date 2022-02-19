@@ -6,10 +6,7 @@ import javax.servlet.annotation.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 @WebServlet(name = "BookAddServlet", value = "/BookAddServlet")
 @MultipartConfig(
@@ -40,7 +37,7 @@ public class BookAddServlet extends HttpServlet {
             int lstock=Integer.parseInt(request.getParameter("lstock"));
             String lname=request.getParameter("lname");
             String lisbn=request.getParameter("lisbn");
-            String lpubdate=request.getParameter("lpubdate");
+            Date lpubdate=Date.valueOf(request.getParameter("lpubdate"));
             String ldes=request.getParameter("ldes");
             String lpub=request.getParameter("lpub");
             int lprice=Integer.parseInt(request.getParameter("lprice"));
@@ -86,7 +83,7 @@ public class BookAddServlet extends HttpServlet {
             st.setInt(3, lstock);
             st.setString(4, lname);
             st.setString(5, lisbn);
-            st.setString(6, lpubdate);
+            st.setDate(6, lpubdate);
             st.setString(7, lpub);
             st.setInt(8, lprice);
             st.setString(9, staffid);
