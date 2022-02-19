@@ -37,13 +37,13 @@ public class BookAddServlet extends HttpServlet {
             String staffid= (String)session.getAttribute("staffid");
             int fid=Integer.parseInt(request.getParameter("fid"));
             String ltitle=request.getParameter("ltitle");
-            String lstock=request.getParameter("lstock");
+            int lstock=Integer.parseInt(request.getParameter("lstock"));
             String lname=request.getParameter("lname");
             String lisbn=request.getParameter("lisbn");
             String lpubdate=request.getParameter("lpubdate");
             String ldes=request.getParameter("ldes");
             String lpub=request.getParameter("lpub");
-            String lprice=request.getParameter("lprice");
+            int lprice=Integer.parseInt(request.getParameter("lprice"));
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -83,12 +83,12 @@ public class BookAddServlet extends HttpServlet {
             st = conn.prepareStatement("insert into BOOKS (book_id, book_title, book_stock, book_author, book_isbn, book_publishdate, book_publisher, book_price,STAFF_ID, book_cover,book_description) values (?,?,?,?,?,?,?,?,?,?,?)");
             st.setInt(1, fid);
             st.setString(2, ltitle);
-            st.setString(3, lstock);
+            st.setInt(3, lstock);
             st.setString(4, lname);
             st.setString(5, lisbn);
             st.setString(6, lpubdate);
             st.setString(7, lpub);
-            st.setString(8, lprice);
+            st.setInt(8, lprice);
             st.setString(9, staffid);
             st.setString(10,urlPathForDB);
             st.setString(11,ldes);
