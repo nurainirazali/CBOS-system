@@ -12,6 +12,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @WebServlet(name = "BookAddServlet", value = "/BookAddServlet")
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10, // 10MB
+        maxRequestSize = 1024 * 1024 * 50
+)
 public class BookAddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +44,6 @@ public class BookAddServlet extends HttpServlet {
             String ldes=request.getParameter("ldes");
             String lpub=request.getParameter("lpub");
             String lprice=request.getParameter("lprice");
-            String limage=request.getParameter("limage");
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
