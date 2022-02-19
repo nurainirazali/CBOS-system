@@ -26,7 +26,7 @@
         String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
         Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-        String query="update BOOKS set BOOK_TITLE=?, BOOK_STOCK=?, BOOK_AUTHOR=?,BOOK_ISBN=?,BOOK_PUBLISHDATE=?,BOOK_DESCRIPTION=?,BOOK_PUBLISHER=?,BOOK_PRICE=?, STAFF_ID=? where BOOK_ID='"+fid+"'";
+        String query="update BOOKS set BOOK_TITLE=?, BOOK_STOCK=?, BOOK_AUTHOR=?,BOOK_ISBN=?,BOOK_PUBLISHDATE=?,BOOK_PUBLISHER=?,BOOK_PRICE=?,BOOK_DESCRIPTION=?, STAFF_ID=? where BOOK_ID='"+fid+"'";
         PreparedStatement st= null;
         st = conn.prepareStatement(query);
         st.setString(1,ltitle);
@@ -34,9 +34,9 @@
         st.setString(3,lname);
         st.setString(4,lisbn);
         st.setString(5,lpubdate);
-        st.setString(6,ldes);
-        st.setString(7,lpub);
-        st.setString(8,lprice);
+        st.setString(6,lpub);
+        st.setString(7,lprice);
+        st.setString(8,ldes);
         st.setString(9,staffid);
         int row= st.executeUpdate();//return no of row effected
 
