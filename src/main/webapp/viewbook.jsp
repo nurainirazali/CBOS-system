@@ -51,6 +51,7 @@
 <div>
     <%@include file="navbaruser.html"%>
 </div>
+<center>
 <br>
 <center>
     <div class="container">
