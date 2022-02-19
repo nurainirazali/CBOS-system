@@ -79,7 +79,7 @@ public class BookAddServlet extends HttpServlet {
                 return;
             }
 
-            st = conn.prepareStatement("insert into BOOKS (book_id, book_title, book_stock, book_author, book_isbn, book_publishdate, book_publisher, book_price,STAFF_ID, book_cover,book_description) values (?,?,?,?,?,?,?,?,?,?,?)");
+            st = conn.prepareStatement("insert into BOOKS (book_id, book_title, book_stock, book_author, book_isbn, book_publishdate, book_publisher, book_price, book_cover,book_description, STAFF_ID) values (?,?,?,?,?,?,?,?,?,?,?)");
             st.setInt(1, fid);
             st.setString(2, ltitle);
             st.setInt(3, lstock);
@@ -88,9 +88,9 @@ public class BookAddServlet extends HttpServlet {
             st.setDate(6, lpubdate);
             st.setString(7, lpub);
             st.setInt(8, lprice);
-            st.setString(9, staffid);
-            st.setString(10,urlPathForDB);
-            st.setString(11,ldes);
+            st.setString(9,urlPathForDB);
+            st.setString(10,ldes);
+            st.setString(11, staffid);
             int count = st.executeUpdate();
 
             if(count>0)

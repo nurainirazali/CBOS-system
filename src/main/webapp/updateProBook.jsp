@@ -71,12 +71,11 @@
 <br>
 <center>
     <div class="container">
-        <h1>Book List</h1>
+        <h1>Book</h1>
         <br>
-        <input type="text" placeholder="Search.." style="margin-left: 75%; ">
-        <br><br>
-        <%
+            <%
             String staffid = (String)session.getAttribute("staffid");
+            String bookid = request.getParameter("id");
             try{
                 Class.forName("org.postgresql.Driver");
                 String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -86,47 +85,30 @@
 
                 Statement st = conn.createStatement();
                 ResultSet rs;
-                rs = st.executeQuery("select * from BOOKS " );
-        %>
-        <table>
-            <tr>
-                <th>Book ID</th>
-                <th>Title</th>
-                <th>Stock</th>
-                <th>Author</th>
-                <th>ISBN</th>
-                <th>Publish Date</th>
-                <th>Publisher</th>
-                <th>Description</th>
-                <th>Price (RM)</th>
-                <th>Cover</th>
-                <th>Control</th>
-            </tr>
-            <% while(rs.next()){ %>
-            <tr>
-                <td> <%= rs.getInt("book_id") %></td>
-                <td> <%= rs.getString("book_title") %></td>
-                <td> <%= rs.getInt("book_stock") %></td>
-                <td> <%= rs.getString("book_author") %></td>
-                <td> <%= rs.getString("book_isbn") %></td>
-                <td> <%= rs.getDate("book_publishdate") %></td>
-                <td> <%= rs.getString("book_publisher") %></td>
-                <td> <%= rs.getString("book_description") %></td>
-                <td> <%= rs.getInt("book_price") %></td>
-                <td> <img src="<%=rs.getString("book_cover")%>"></td>
-
-                <td><a href="updateProBook.jsp?id=<%=rs.getString("book_id")%>"><button>Update</button></a>
-                    <a href="deleteProBook.jsp?id=<%=rs.getString("book_id")%>"><button>Delete</button></a></td>
-
-            </tr>
-            <% }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+                rs = st.executeQuery("select * from BOOKS where book_id="+ bookid);
+                while (rs.next()){
             %>
-        </table>
-    </div>
-</center>
+        <form action="updateProgBook.jsp" method="post">
+            <div>
+                Book Id : <input type="text" name="fid" value="<%=rs.getString("book_id")%>"><br><br>
+                Title : <input type="text" name="ltitle" value="<%=rs.getString("book_title")%>"><br><br>
+                Stock : <input type="number" name="lstock" value="<%=rs.getString("book_stock")%>"><br><br>
+                Author : <input type="tetx" name="lname" value="<%=rs.getString("book_author")%>"><br><br>
+                ISBN : <input type="text" name="lisbn" value="<%=rs.getString("book_isbn")%>"><br><br>
+                Publish date : <input type="text" name="lpubdate" value="<%=rs.getString("book_publishdate")%>"><br><br>
+                Publisher : <input name="lpub" type="text" value="<%=rs.getString("book_publisher")%>"><br><br>
+                Description : <input name="ldes" type="text" value="<%=rs.getString("book_description")%>"><br><br>
+                Price : RM <input name="lprice" type="text" value="<%=rs.getString("book_price")%>"><br><br>
+                <input type="hidden" name="staffid" id="staffid" value=" ${sessionScope['staffid']}"/>
+                <button>Update</button></a> &nbsp;
+            </div>
+        </form>
+            <%
+                }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            %>
+
 </body>
 </html>
-
