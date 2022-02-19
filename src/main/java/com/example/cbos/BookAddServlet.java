@@ -39,6 +39,7 @@ public class BookAddServlet extends HttpServlet {
             String lname=request.getParameter("lname");
             String lisbn=request.getParameter("lisbn");
             String pubdate=request.getParameter("lpubdate");
+            out.println(pubdate);
             Date lpubdate= (Date) new SimpleDateFormat("yyyy-MM-dd").parse(pubdate);
             String ldes=request.getParameter("ldes");
             String lpub=request.getParameter("lpub");
