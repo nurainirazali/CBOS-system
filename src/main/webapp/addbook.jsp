@@ -52,7 +52,7 @@
             <label for="lprice">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price (RM):</label>
             <input type="number" id="lprice" name="lprice"><br><br>
             <label for="lstock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stock :</label>
-            <input type="number" id="lstock" name="lstock"><label> pcs</label>
+            <input type="number" id="lstock" name="lstock"><label> pcs</label><br><br>
             <label for="lpubdate">Publish Date :</label>
             <input type="text" id="lpubdate" name="lpubdate"><br><br>
             <label for="myFile">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Book Cover :</label>
