@@ -51,7 +51,6 @@
 <div>
     <%@include file="navbaruser.html"%>
 </div>
-<center>
 <br>
 <center>
     <div class="container">
@@ -72,7 +71,7 @@
         %>
         <table>
             <tr>
-                <td >
+                <td>
                     <div class="card">
                         <img src="https://ababooks.com.my/wp-content/uploads/2021/07/WhatsApp-Image-2021-07-12-at-3.03.32-PM-300x300.jpeg" alt="Denim Jeans" style="width:35%">
                         <h2>ENT223</h2>
@@ -88,11 +87,13 @@
                     </div>
                 </td>
             </tr>
+            <%
+                } catch (Exception e) {
+                e.printStackTrace();
+                }
+            %>
         </table>
-        <br><br><br>
-        <br>
     </div>
-    <br><br>
 </center>
 </body>
 </html>
