@@ -11,13 +11,14 @@
     String staffid = (String)session.getAttribute("staffid");
     String fid=request.getParameter("fid");
     String ltitle=request.getParameter("ltitle");
-    String lstock=request.getParameter("lstock");
+    int lstock=Integer.parseInt(request.getParameter("lstock"));
     String lname=request.getParameter("lname");
     String lisbn=request.getParameter("lisbn");
-    String lpubdate=request.getParameter("lpubdate");
+    String pubdate=request.getParameter("lpubdate");
+    Date lpubdate = Date.valueOf(pubdate);
     String ldes=request.getParameter("ldes");
     String lpub=request.getParameter("lpub");
-    String lprice=request.getParameter("lprice");
+    int lprice=Integer.parseInt(request.getParameter("lprice"));
 
     try{
         Class.forName("org.postgresql.Driver");
@@ -30,12 +31,12 @@
         PreparedStatement st= null;
         st = conn.prepareStatement(query);
         st.setString(1,ltitle);
-        st.setString(2,lstock);
+        st.setInt(2,lstock);
         st.setString(3,lname);
         st.setString(4,lisbn);
-        st.setString(5,lpubdate);
+        st.setString(5,pubdate);
         st.setString(6,lpub);
-        st.setString(7,lprice);
+        st.setInt(7,lprice);
         st.setString(8,ldes);
         st.setString(9,staffid);
         int row= st.executeUpdate();//return no of row effected

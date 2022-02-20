@@ -95,10 +95,10 @@
                 Stock : <input type="number" name="lstock" value="<%=rs.getString("book_stock")%>"><br><br>
                 Author : <input type="tetx" name="lname" value="<%=rs.getString("book_author")%>"><br><br>
                 ISBN : <input type="text" name="lisbn" value="<%=rs.getString("book_isbn")%>"><br><br>
-                Publish date : <input type="text" name="lpubdate" value="<%=rs.getString("book_publishdate")%>"><br><br>
+                Publish date : <input type="date" name="lpubdate" value="<%=rs.getString("book_publishdate")%>"><br><br>
                 Publisher : <input name="lpub" type="text" value="<%=rs.getString("book_publisher")%>"><br><br>
                 Description : <input name="ldes" type="text" value="<%=rs.getString("book_description")%>"><br><br>
-                Price : RM <input name="lprice" type="text" value="<%=rs.getString("book_price")%>"><br><br>
+                Price : RM <input name="lprice" type="number" value="<%=rs.getString("book_price")%>"><br><br>
                 <input type="hidden" name="staffid" id="staffid" value=" ${sessionScope['staffid']}"/>
                 <button>Update</button></a> &nbsp;
             </div>

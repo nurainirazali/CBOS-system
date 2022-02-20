@@ -30,21 +30,6 @@
         border-style:solid;
         height:auto;
     }
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 80%;
-    }
-
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
 
 </style>
 <body style="background-color:#D7EAE8;">
@@ -57,7 +42,8 @@
         <h1>Book</h1>
         <br><br>
         <%
-            String staffid = (String)session.getAttribute("staffid");
+            String userid = (String)session.getAttribute("userid");
+            String bookid = request.getParameter("id");
             try{
                 Class.forName("org.postgresql.Driver");
                 String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -67,32 +53,25 @@
 
                 Statement st = conn.createStatement();
                 ResultSet rs;
-                rs = st.executeQuery("select * from BOOKS " );
+                rs = st.executeQuery("select * from BOOKS where book_id='"+bookid+"'" );
         %>
-        <table>
-            <tr>
-                <td>
-                    <div class="card">
-                        <img src="https://ababooks.com.my/wp-content/uploads/2021/07/WhatsApp-Image-2021-07-12-at-3.03.32-PM-300x300.jpeg" alt="Denim Jeans" style="width:35%">
-                        <h2>ENT223</h2>
-                        <p class="price">$19.99</p>
-                        <p>Author:</p>
-                        <p>Publisher:</p>
-                        <p>ISBN:</p>
-                        <p>Publish Date:</p>
-                        <p>Description:</p>
-                        <label for="lstock">Quantity :</label>
-                        <input type="number" id="lstock" name="lstock" style="width: 50px;"><label> pcs </label>
-                        <p><button>Add to Cart</button></p>
-                    </div>
-                </td>
-            </tr>
-            <%
-                } catch (Exception e) {
+        <form method="post" action="cart.jsp">
+        <div class="card">
+            <img src="<%=rs.getString("book_cover")%>"style="width:35%">
+            <h2><%= rs.getString("book_title") %></h2>
+            <p class="price">Price: RM <%= rs.getInt("book_price") %></p>
+            <p>Author: <%= rs.getString("book_author") %></p>
+            <p><%= rs.getString("book_description") %></p>
+            <label for="lquan">Quantity :</label>
+            <input type="number" id="lquan" name="lquan" style="width: 50px;"><label> pcs </label>
+            <p><button>Add to Cart</button></p>
+        </div>
+        <%
+            } catch (Exception e) {
                 e.printStackTrace();
-                }
-            %>
-        </table>
+            }
+        %>
+        </form>
     </div>
 </center>
 </body>

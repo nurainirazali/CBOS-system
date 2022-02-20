@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 22/1/2022
@@ -39,9 +42,7 @@
     hr.solid {
         border-top: 3px solid #bbb;
     }
-
 </style>
-
 <body style="background-color:#D7EAE8;">
 <%@include file="navbar.html"%>
 <br>
@@ -49,19 +50,29 @@
     <div class="container">
         <h1>Cart</h1>
         <br>
+        <%
+            String userid = (String)session.getAttribute("userid");
+            String bookid = request.getParameter("id");
+            try{
+                Class.forName("org.postgresql.Driver");
+                String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+                String user = "qoyqwxbjtgaycf";
+                String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+                Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+                Statement st = conn.createStatement();
+                ResultSet rs;
+                rs = st.executeQuery("select  from BOOKS where book_id='"+bookid+"'" );
+        %>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table id="voteList" class="display" cellspacing="0" width="100%" >
-                <thead>
                 <tr>
-                    <th >Book Image</th>
-                    <th >Book Title</th>
-                    <th >Price (RM)</th>
-                    <th >Quantity</th>
-                    <th ></th>
+                    <th>Order ID</th>
+                    <th>Book Image</th>
+                    <th>Book Title</th>
+                    <th>Price (RM)</th>
+                    <th>Quantity</th>
                 </tr>
-                </thead>
-                <tbody>
-
                 <tr rowspan ="4" >
                     <td style="text-align: center;"><br><br>sadasd</td>
                     <td style="text-align: center;"><br><br>asdad</td>
@@ -70,7 +81,6 @@
                         <input type="number" id="lstock" name="lstock" style="width: 50px;"></td>
                     <td style="text-align: center;"><br><br><input type="submit" value="remove" style="background-color:red; color:white;"></td>
                 </tr >
-                </tbody>
             </table>
             <br><br><br>
             <hr class="solid">
