@@ -51,7 +51,7 @@
         <h1>Cart</h1>
         <br>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
-            <table id="voteList" class="display" cellspacing="0" width="100%" >
+            <table class="display" cellspacing="0" width="100%" >
                 <tr>
                     <th>Order ID</th>
                     <th>Book Image</th>
@@ -84,14 +84,7 @@
                 </tr >
             </table>
             <br><br><br>
-            <%
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            %>
             <hr class="solid">
-
             <a style="margin-left: 45%; ">Sub Total: </a><br>
             <a style="margin-left: 45%; ">Tax (5%): </a><br>
             <a style="margin-left: 45%; ">Shipping: </a><br>
@@ -101,6 +94,12 @@
             <p><a href="uploadpayment.jsp?"><button>CheckOut</button></a>/p>
             <p><a href="cancelorder.jsp?"><button>Cancel Order</button></a></p>
         </div>
+        <%
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
         <br><br>
     </div>
 </center>
