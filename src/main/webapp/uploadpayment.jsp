@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 22/1/2022
@@ -43,26 +46,41 @@
 </style>
 
 <body style="background-color:#D7EAE8;">
-<%@include file="navbar.html"%>
+<%@include file="navbaruser.html"%>
 <br>
 <center>
     <div class="container">
         <h1>Payment</h1>
         <br>
+        <%
+            String userid = (String)session.getAttribute("userid");
+            String bookid = request.getParameter("id");
+            try{
+                Class.forName("org.postgresql.Driver");
+                String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+                String user = "qoyqwxbjtgaycf";
+                String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+                Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+                Statement st = conn.createStatement();
+                ResultSet rs;
+                rs = st.executeQuery("select order_price from  orders where book_id='"+bookid+"'" );
+
+        %>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table id="voteList" class="display" cellspacing="0" width="100%" >
                 <thead>
                 <tr>
-                    <th ><img src="https://play-lh.googleusercontent.com/dEcCRYBuzpFUd2R_ZjTfPxKbRrZoiNoMiO2QULQu17k1jI9itzDQ4QM7kjMI_eFyRaI"  style="width:94px;height:92px;"></th>
+                    <th ><a href="https://www.maybank2u.com.my/home/m2u/common/login.do"><img src="https://play-lh.googleusercontent.com/dEcCRYBuzpFUd2R_ZjTfPxKbRrZoiNoMiO2QULQu17k1jI9itzDQ4QM7kjMI_eFyRaI"  style="width:94px;height:92px;"></a></th>
                     <td >Maybank <br>158023902021<br>LucyTech Empire</td>
-                    <th ><img src="https://play-lh.googleusercontent.com/P5QxSIOc7_Jp38I-oz7OPzDSSpFiYTY2317tCOan6RvsekOZQr3704P3GBPly1xh0Ag"   style="width:94px;height:92px;"></th>
+                    <th ><a href="https://www.bankislam.biz/"><img src="https://play-lh.googleusercontent.com/P5QxSIOc7_Jp38I-oz7OPzDSSpFiYTY2317tCOan6RvsekOZQr3704P3GBPly1xh0Ag"   style="width:94px;height:92px;"></a></th>
                     <td >Bank Islam <br>083249290123<br>ClickUS</td>
                 </tr>
                 </thead>
             </table>
             <br><br><br>
             <hr class="solid">
-            <a>Total:RM </a><br>
+            <a>Total:RM 50</a><br>
             <hr class="solid">
             <br>
             <p style="background-color:red; color:white;">Please screenshot or capture the payment receipt as an evidence to be upload</p>
@@ -73,6 +91,12 @@
             </form>
         </div>
         <br><br>
+        <%
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
     </div>
 </center>
 </body>

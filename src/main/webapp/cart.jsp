@@ -64,7 +64,6 @@
                 ResultSet rs;
                 rs = st.executeQuery("select b.book_cover, b.book_title, o.order_id, o.order_price, o.order_quan " +
                         "from BOOKS b  inner join orders o ON book_id='"+bookid+"'" );
-                while (rs.next()){
         %>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table id="voteList" class="display" cellspacing="0" width="100%" >
@@ -75,6 +74,9 @@
                     <th>Price (RM)</th>
                     <th>Quantity</th>
                 </tr>
+                <%
+                    if (rs.next()){
+                %>
                 <tr rowspan ="4" >
                     <td style="text-align: center;"><br><br><%=rs.getInt("order_id")%></td>
                     <td style="text-align: center;"><br><br><a href="<%=rs.getString("book_cover")%>"></a></td>
