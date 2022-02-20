@@ -54,13 +54,6 @@
     <br>
     <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
       <table id="voteList" class="display" cellspacing="0" width="100%" >
-        <thead>
-        <tr>
-          <th >Payment ID</th>
-          <th >Image</th>
-          <th ></th>
-        </tr>
-        </thead>
         <tbody>
         <%
           String staffid = (String)session.getAttribute("staffid");
@@ -90,6 +83,18 @@
           e.printStackTrace();
         }
       %>
+      <thead>
+      <tr>
+        <th >Payment ID</th>
+        <th >Image</th>
+        <th ></th>
+      </tr>
+      </thead>
+      <tr>
+        <td> 10001</td>
+        <td><img src="http://cbos-postgres.herokuapp.com/upload/ELC091-Manual-.jpg"></td>
+        <td style="text-align: center;"><br><br><a href="paymentstatus.jsp"><button>Valid</button></a></td>
+      </tr>
       <br><br>
       <hr class="solid">
       <br><br><br>

@@ -55,6 +55,11 @@
           <th>Order Id</th>
           <th>Tracking Number</th>
         </tr>
+        <tr>
+          <td>1001</td>
+          <td><input type="text" id="tracking1" name="tracking">
+            <button>Update</button></td>
+        </tr>
         <%
           String staffid = (String)session.getAttribute("staffid");
           String bookid = request.getParameter("id");
