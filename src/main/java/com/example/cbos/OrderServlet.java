@@ -56,8 +56,7 @@ public class OrderServlet extends HttpServlet {
             else
             {
                 out.println("Not successfully");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("viewbook.jsp");
-                dispatcher.forward (request, response);
+
             }
 
         }catch(Exception e){
