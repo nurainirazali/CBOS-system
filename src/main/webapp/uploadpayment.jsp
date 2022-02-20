@@ -72,7 +72,7 @@
             <form method="post" action="PaymentServlet">
                 <label for="myFile">Upload Payment Evidence :</label>
                 <input type="file" id="myFile" name="payimage" accept="image/jpeg, image/png, image/jpg">
-                <input type="submit" value="Submit"  style="background-color:green; color:white;">
+                <button>Submit</button>
             </form>
         </div>
         <br><br>
