@@ -66,6 +66,14 @@
                 <th>Total Price (RM)</th>
                 <th>Tracking Number</th>
             </tr>
+            <tr>
+                <td>1001</td>
+                <td>2022-02-20</td>
+                <td>100</td>
+                <td>1</td>
+                <td>40</td>
+                <td>MY52345436143</td>
+            </tr>
             <%
                 String staffid = (String)session.getAttribute("staffid");
                 try{
