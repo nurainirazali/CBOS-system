@@ -74,7 +74,7 @@
         <tr>
           <td> 10001</td>
           <td><img src="http://cbos-postgres.herokuapp.com/upload/ELC091-Manual-.jpg"></td>
-          <td style="text-align: center;"><br><br><a href="paymentstatus.jsp"><button>Valid</button></a></td>
+          <td style="text-align: center;"><a href="paymentstatus.jsp"><button>Valid</button></a></td>
         </tr>
         <%
           String staffid = (String)session.getAttribute("staffid");
