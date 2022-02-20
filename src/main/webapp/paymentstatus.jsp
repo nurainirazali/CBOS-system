@@ -65,7 +65,6 @@
         <%
           String staffid = (String)session.getAttribute("staffid");
           String bookid = request.getParameter("id");
-          int orderid = Integer.parseInt(request.getParameter("orderid"));
           try{
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
