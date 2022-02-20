@@ -50,7 +50,7 @@
 
 <body style="background-color:#D7EAE8;">
 <div>
-    <%@include file="navbar.html"%>
+    <%@include file="navbaruser.html"%>
 </div>
 <br>
 <center>
