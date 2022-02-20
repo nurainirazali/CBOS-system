@@ -97,8 +97,8 @@
             <a style="margin-left: 45%; ">Grand Total:RM </a>
             <hr class="solid">
             <br>
-            <p><a href="uploadpayment.jsp?"><button>CheckOut</button></a>/p>
-            <p><a href="cancelorder.jsp?"><button>Cancel Order</button></a></p>
+            <a href="uploadpayment.jsp?"><button>CheckOut</button></a><br>
+            <a href="cancelorder.jsp?"><button>Cancel Order</button></a>
         </div>
         <br><br>
     </div>
