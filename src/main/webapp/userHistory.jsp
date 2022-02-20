@@ -55,7 +55,7 @@
 <br>
 <center>
     <div class="container">
-        <h1>Order</h1>
+        <h1>History</h1>
         <br><br>
         <table>
             <tr>
@@ -64,28 +64,26 @@
                 <th>Book ID</th>
                 <th>Quantity</th>
                 <th>Total Price (RM)</th>
-                <th>Tracking Number</th>
             </tr>
             <%
-            String userid = (String)session.getAttribute("userid");
-            try{
-                Class.forName("org.postgresql.Driver");
-                String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
-                String user = "qoyqwxbjtgaycf";
-                String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
-                Connection conn = DriverManager.getConnection(dbURL, user, pass);
+                String userid = (String)session.getAttribute("userid");
+                try{
+                    Class.forName("org.postgresql.Driver");
+                    String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+                    String user = "qoyqwxbjtgaycf";
+                    String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+                    Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-                Statement st = conn.createStatement();
-                ResultSet rs;
-                rs = st.executeQuery("select * from orders " );
-                while(rs.next()){ %>
+                    Statement st = conn.createStatement();
+                    ResultSet rs;
+                    rs = st.executeQuery("select * from orders " );
+                    while(rs.next()){ %>
             <tr>
                 <td> <%= rs.getInt("order_id") %></td>
                 <td> <%= rs.getDate("order_date") %></td>
                 <td> <%= rs.getInt("book_id") %></td>
                 <td> <%= rs.getInt("order_quan") %></td>
                 <td> <%= rs.getInt("order_price") %></td>
-                <td> <%= rs.getString("order_trackingnumber") %></td>
             </tr>
             <% }
             } catch (Exception e) {
