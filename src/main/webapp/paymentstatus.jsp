@@ -54,7 +54,16 @@
     <br>
     <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
       <table id="voteList" class="display" cellspacing="0" width="100%" >
-        <tbody>
+        <tr>
+          <th >Payment ID</th>
+          <th >Image</th>
+          <th ></th>
+        </tr>
+        <tr>
+          <td> 10001</td>
+          <td><img src="http://cbos-postgres.herokuapp.com/upload/ELC091-Manual-.jpg"></td>
+          <td style="text-align: center;"><br><br><a href="paymentstatus.jsp"><button>Valid</button></a></td>
+        </tr>
         <%
           String staffid = (String)session.getAttribute("staffid");
           String bookid = request.getParameter("id");
@@ -75,7 +84,6 @@
           <td style="text-align: center;"><br><br><img src="<%=rs.getString("payment_evident")%>"  style="width:250px;height:250px;"></td>
           <td style="text-align: center;"><br><br><a href="updatepayStat.jsp"><button>Valid</button></a></td>
         </tr >
-        </tbody>
       </table>
       <%
           }
@@ -83,18 +91,6 @@
           e.printStackTrace();
         }
       %>
-      <thead>
-      <tr>
-        <th >Payment ID</th>
-        <th >Image</th>
-        <th ></th>
-      </tr>
-      </thead>
-      <tr>
-        <td> 10001</td>
-        <td><img src="http://cbos-postgres.herokuapp.com/upload/ELC091-Manual-.jpg"></td>
-        <td style="text-align: center;"><br><br><a href="paymentstatus.jsp"><button>Valid</button></a></td>
-      </tr>
       <br><br>
       <hr class="solid">
       <br><br><br>

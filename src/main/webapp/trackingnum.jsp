@@ -56,8 +56,8 @@
           <th>Tracking Number</th>
         </tr>
         <tr>
-          <td>1001</td>
-          <td><input type="text" id="tracking1" name="tracking">
+          <td style="text-align: center;">1001</td>
+          <td style="text-align: center;"><input type="text" id="tracking1" name="tracking">
             <button>Update</button></td>
         </tr>
         <%
