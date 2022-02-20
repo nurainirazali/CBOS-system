@@ -44,27 +44,12 @@
     }
 </style>
 <body style="background-color:#D7EAE8;">
-<%@include file="navbar.html"%>
+<%@include file="navbaruser.html"%>
 <br>
 <center>
     <div class="container">
         <h1>Cart</h1>
         <br>
-        <%
-            String userid = (String)session.getAttribute("userid");
-            String bookid = request.getParameter("id");
-            try{
-                Class.forName("org.postgresql.Driver");
-                String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
-                String user = "qoyqwxbjtgaycf";
-                String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
-                Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
-                Statement st = conn.createStatement();
-                ResultSet rs;
-                rs = st.executeQuery("select b.book_cover, b.book_title, o.order_id, o.order_price, o.order_quan " +
-                        "from BOOKS b  inner join orders o ON book_id='"+bookid+"'" );
-        %>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table id="voteList" class="display" cellspacing="0" width="100%" >
                 <tr>
@@ -75,6 +60,19 @@
                     <th>Quantity</th>
                 </tr>
                 <%
+                    String userid = (String)session.getAttribute("userid");
+                    String bookid = request.getParameter("id");
+                    try{
+                        Class.forName("org.postgresql.Driver");
+                        String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+                        String user = "qoyqwxbjtgaycf";
+                        String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+                        Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+                        Statement st = conn.createStatement();
+                        ResultSet rs;
+                        rs = st.executeQuery("select b.book_cover, b.book_title, o.order_id, o.order_price, o.order_quan " +
+                                "from BOOKS b  inner join orders o ON book_id='"+bookid+"'" );
                     if (rs.next()){
                 %>
                 <tr rowspan ="4" >
