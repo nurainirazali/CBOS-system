@@ -64,7 +64,7 @@ public class PaymentServlet extends HttpServlet {
             }
 
             st = conn.prepareStatement("insert into payments (payment_id, payment_status, order_id, payment_evident) values (nextval('payment_sequence'),?,?,?)");
-            st.setInt(1, );
+
             int count = st.executeUpdate();
 
             if(count>0)
