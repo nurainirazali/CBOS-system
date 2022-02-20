@@ -42,6 +42,19 @@
   hr.solid {
     border-top: 3px solid #bbb;
   }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 
 </style>
 
@@ -52,7 +65,6 @@
   <div class="container">
     <h1>Payment Status</h1>
     <br>
-    <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
       <table id="voteList" class="display" cellspacing="0" width="100%" >
         <tr>
           <th >Payment ID</th>
