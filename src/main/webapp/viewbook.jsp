@@ -54,8 +54,9 @@
                 Statement st = conn.createStatement();
                 ResultSet rs;
                 rs = st.executeQuery("select * from BOOKS where book_id='"+bookid+"'" );
+                while(rs.next()){
         %>
-        <form method="post" action="cart.jsp">
+        <form method="post" action="cart.jsp" enctype="multipart/form-data">
         <div class="card">
             <img src="<%=rs.getString("book_cover")%>"style="width:35%">
             <h2><%= rs.getString("book_title") %></h2>
@@ -67,6 +68,7 @@
             <p><button>Add to Cart</button></p>
         </div>
         <%
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
