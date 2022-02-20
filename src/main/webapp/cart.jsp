@@ -84,24 +84,24 @@
                 </tr >
             </table>
             <br><br><br>
+            <%
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            %>
             <hr class="solid">
 
             <a style="margin-left: 45%; ">Sub Total: </a><br>
             <a style="margin-left: 45%; ">Tax (5%): </a><br>
             <a style="margin-left: 45%; ">Shipping: </a><br>
-            <a style="margin-left: 45%; ">Grand Total:RM <%=rs.getInt("order_price")%></a>
+            <a style="margin-left: 45%; ">Grand Total:RM </a>
             <hr class="solid">
             <br>
-            <p><a href="uploadpayment.jsp?id=<%=rs.getString("order_id")%>"><button>CheckOut</button></p>
-            <p><a href="cancelorder.jsp?id=<%=rs.getString("order_id")%>"><button>Cancel Order</button></p>
+            <p><a href="uploadpayment.jsp?"><button>CheckOut</button></a>/p>
+            <p><a href="cancelorder.jsp?"><button>Cancel Order</button></a></p>
         </div>
         <br><br>
-        <%
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
     </div>
 </center>
 </body>
