@@ -94,7 +94,7 @@
             <a style="margin-left: 45%; ">Sub Total: </a><br>
             <a style="margin-left: 45%; ">Tax (5%): </a><br>
             <a style="margin-left: 45%; ">Shipping: </a><br>
-            <a style="margin-left: 45%; ">Grand Total:RM </a>
+            <a style="margin-left: 45%; ">Grand Total (RM): </a>
             <hr class="solid">
             <br>
             <a href="uploadpayment.jsp?"><button>CheckOut</button></a>&nbsp;
