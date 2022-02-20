@@ -62,7 +62,9 @@
 
                 Statement st = conn.createStatement();
                 ResultSet rs;
-                rs = st.executeQuery("select  from BOOKS where book_id='"+bookid+"'" );
+                rs = st.executeQuery("select b.book_cover, b.book_title, o.order_id, o.order_price, o.order_quan " +
+                        "from BOOKS b  inner join orders o ON book_id='"+bookid+"'" );
+                while (rs.next()){
         %>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table id="voteList" class="display" cellspacing="0" width="100%" >
@@ -74,12 +76,11 @@
                     <th>Quantity</th>
                 </tr>
                 <tr rowspan ="4" >
-                    <td style="text-align: center;"><br><br>sadasd</td>
-                    <td style="text-align: center;"><br><br>asdad</td>
-                    <td style="text-align: center;"><br><br>adsa</td>
-                    <td style="text-align: center;"><br><br>
-                        <input type="number" id="lstock" name="lstock" style="width: 50px;"></td>
-                    <td style="text-align: center;"><br><br><input type="submit" value="remove" style="background-color:red; color:white;"></td>
+                    <td style="text-align: center;"><br><br><%=rs.getInt("order_id")%></td>
+                    <td style="text-align: center;"><br><br><a href="<%=rs.getString("book_cover")%>"></a></td>
+                    <td style="text-align: center;"><br><br><%=rs.getString("book_title")%></td>
+                    <td style="text-align: center;"><br><br><%=rs.getInt("book_price")%></td>
+                    <td style="text-align: center;"><br><br><%=rs.getInt("order_quan")%></td>
                 </tr >
             </table>
             <br><br><br>
@@ -88,12 +89,19 @@
             <a style="margin-left: 45%; ">Sub Total: </a><br>
             <a style="margin-left: 45%; ">Tax (5%): </a><br>
             <a style="margin-left: 45%; ">Shipping: </a><br>
-            <a style="margin-left: 45%; ">Grand Total:</a>
+            <a style="margin-left: 45%; ">Grand Total:RM <%=rs.getInt("order_price")%></a>
             <hr class="solid">
             <br>
-            <a href="#" style="margin-left: 83%; "><input type="submit" value="checkout" style="background-color:green; color:white;"></a>
+            <p><a href="uploadpayment.jsp?id=<%=rs.getString("order_id")%>"><button>CheckOut</button></p>
+            <p><a href="cancelorder.jsp?id=<%=rs.getString("order_id")%>"><button>Cancel Order</button></p>
         </div>
         <br><br>
+        <%
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
     </div>
 </center>
 </body>

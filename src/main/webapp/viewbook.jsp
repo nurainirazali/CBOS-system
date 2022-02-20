@@ -56,7 +56,7 @@
                 rs = st.executeQuery("select * from BOOKS where book_id='"+bookid+"'" );
                 while(rs.next()){
         %>
-        <form method="post" action="cart.jsp" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
         <div class="card">
             <img src="<%=rs.getString("book_cover")%>"style="width:35%">
             <h2><%= rs.getString("book_title") %></h2>
@@ -65,7 +65,7 @@
             <p><%= rs.getString("book_description") %></p>
             <label for="lquan">Quantity :</label>
             <input type="number" id="lquan" name="lquan" style="width: 50px;"><label> pcs </label>
-            <p><button>Add to Cart</button></p>
+            <p><a href="OrderServlet?id=<%=rs.getString("book_id")%>"><button>Add to Cart</button></a></p>
         </div>
         <%
                 }
