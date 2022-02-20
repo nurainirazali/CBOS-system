@@ -12,6 +12,7 @@
 </head>
 <body style="background-color:#D7EAE8;">
 <%@include file="navbar.html"%>
+<br><br>
 <%
     String name=(String)session.getAttribute("staffid");
     out.print("Hello Staff "+name);

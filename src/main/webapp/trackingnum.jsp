@@ -48,14 +48,10 @@
     <br>
     <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
       <table id="voteList" class="display" cellspacing="0" width="100%" border="1">
-        <thead>
         <tr>
           <th>Order Id</th>
           <th>Tracking Number</th>
         </tr>
-        </thead>
-        <tbody>
-
         <tr rowspan ="4">
           <td style="text-align: center;"></td>
           <td style="text-align: center;">
@@ -64,22 +60,11 @@
               <input type="submit" value="Update">
             </form></i><a></a></td>
         </tr>
-
-        </tbody>
       </table>
     </div>
     <br><br>
   </div>
 </center>
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
-<script type="text/javascript">
-  $(document).ready( function () {
-    $('#voteList').DataTable();
-  } );
-</script>
-
 </html>
 

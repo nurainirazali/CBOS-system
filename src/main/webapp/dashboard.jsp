@@ -48,6 +48,7 @@
 </head>
 <body style="background-color:#D7EAE8;">
 <%@include file="navbaruser.html"%>
+<br><br>
     <%
         String name=(String)session.getAttribute("userid");
         out.print("Hello User "+name);
