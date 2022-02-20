@@ -65,6 +65,13 @@
                 <th>Quantity</th>
                 <th>Total Price (RM)</th>
             </tr>
+            <tr>
+                <td> 1001</td>
+                <td> 2022-02-20</td>
+                <td> 100</td>
+                <td> 1</td>
+                <td> 40</td>
+            </tr>
             <%
                 String userid = (String)session.getAttribute("userid");
                 try{
@@ -78,13 +85,6 @@
                     ResultSet rs;
                     rs = st.executeQuery("select * from orders " );
                     while(rs.next()){ %>
-            <tr>
-                <td> 1001</td>
-                <td> 2022-02-20</td>
-                <td> 100</td>
-                <td> 1</td>
-                <td> 40</td>
-            </tr>
             <tr>
                 <td> <%= rs.getInt("order_id") %></td>
                 <td> <%= rs.getDate("order_date") %></td>
