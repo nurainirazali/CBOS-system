@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 22/1/2022
@@ -52,15 +55,37 @@
           <th>Order Id</th>
           <th>Tracking Number</th>
         </tr>
+        <%
+          String staffid = (String)session.getAttribute("staffid");
+          String bookid = request.getParameter("id");
+          int orderid = Integer.parseInt(request.getParameter("orderid"));
+          try{
+            Class.forName("org.postgresql.Driver");
+            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+            String user = "qoyqwxbjtgaycf";
+            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            Statement st = conn.createStatement();
+            ResultSet rs;
+            rs = st.executeQuery("select * from orders");
+            if (rs.next()){
+        %>
         <tr rowspan ="4">
-          <td style="text-align: center;"></td>
+          <td style="text-align: center;"><%=rs.getInt("order_id")%></td>
           <td style="text-align: center;">
-            <form action="/action_page.php">
+            <form action="updatetracknum.jsp">
               <input type="text" id="tracking" name="tracking">
-              <input type="submit" value="Update">
-            </form></i><a></a></td>
+              <button>Update</button>
+            </form></td>
         </tr>
       </table>
+      <%
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      %>
     </div>
     <br><br>
   </div>
