@@ -52,13 +52,6 @@
         <br>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table class="display" cellspacing="0" width="100%" >
-                <tr>
-                    <th>Order ID</th>
-                    <th>Book Image</th>
-                    <th>Book Title</th>
-                    <th>Price (RM)</th>
-                    <th>Quantity</th>
-                </tr>
                 <%
                     String userid = (String)session.getAttribute("userid");
                     String bookid = request.getParameter("id");
@@ -82,6 +75,19 @@
                     <td style="text-align: center;"><br><br><%=rs.getInt("book_price")%></td>
                     <td style="text-align: center;"><br><br><%=rs.getInt("order_quan")%></td>
                 </tr >
+                <%
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                %>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Book Image</th>
+                    <th>Book Title</th>
+                    <th>Price (RM)</th>
+                    <th>Quantity</th>
+                </tr>
             </table>
             <br><br><br>
             <hr class="solid">
@@ -94,12 +100,6 @@
             <p><a href="uploadpayment.jsp?"><button>CheckOut</button></a>/p>
             <p><a href="cancelorder.jsp?"><button>Cancel Order</button></a></p>
         </div>
-        <%
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
         <br><br>
     </div>
 </center>
