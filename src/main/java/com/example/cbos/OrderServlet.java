@@ -26,12 +26,13 @@ public class OrderServlet extends HttpServlet {
         Part part;
 
         try{
-            String bookid = request.getParameter("id");
+            String bookid = request.getParameter("fid");
             String userid = (String)session.getAttribute("userid");
-            int price=Integer.parseInt(request.getParameter(""));
+            int price=Integer.parseInt(request.getParameter("lprice"));
             int quan=Integer.parseInt(request.getParameter("lquan"));
             java.util.Date date = new java.util.Date();
             Date sqlDate = new Date(date.getTime());
+            int totprice=price*quan;
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -41,7 +42,7 @@ public class OrderServlet extends HttpServlet {
 
             st = conn.prepareStatement("insert into orders (order_id, order_date, order_price, book_id, user_id, order_quan) values (nextval('order_sequence'),?,?,?,?,?)");
             st.setDate(1,sqlDate);
-            st.setInt(2,price);
+            st.setInt(2,totprice);
             st.setString(3, bookid);
             st.setString(4, userid);
             st.setInt(5,quan);
@@ -56,8 +57,6 @@ public class OrderServlet extends HttpServlet {
             else
             {
                 out.println("Not successfully");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("cart.jsp");
-                dispatcher.forward (request, response);
             }
 
         }catch(Exception e){
