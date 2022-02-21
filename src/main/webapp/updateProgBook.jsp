@@ -34,7 +34,7 @@
         st.setInt(2,lstock);
         st.setString(3,lname);
         st.setString(4,lisbn);
-        st.setString(5,pubdate);
+        st.setDate(5,lpubdate);
         st.setString(6,lpub);
         st.setInt(7,lprice);
         st.setString(8,ldes);
