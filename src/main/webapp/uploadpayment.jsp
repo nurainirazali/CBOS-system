@@ -69,7 +69,7 @@
             <hr class="solid">
             <br>
             <p style="background-color:red; color:white;">Please screenshot or capture the payment receipt as an evidence to be upload</p>
-            <form method="post" action="PaymentServlet">
+            <form method="post" action="dashboard.jsp">
                 <label for="myFile">Upload Payment Evidence :</label>
                 <input type="file" id="myFile" name="payimage" accept="image/jpeg, image/png, image/jpg">
                 <button>Submit</button>
