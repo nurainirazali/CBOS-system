@@ -33,8 +33,7 @@
 <center>
     <div class="container">
         <h1>Create Account</h1>
-
-        <img src="https://cdn-icons.flaticon.com/png/512/3281/premium/3281869.png?token=exp=1642432528~hmac=983ad37ba2df8cfa51a9eb9446ebba39"  style="width:154px;height:152px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/194/194931.png"  style="width:154px;height:152px;">
         <h3>Staff</h3>
         <br>
         <form action="StaffRegisServlet" method="post">
@@ -42,14 +41,14 @@
             <input type="text" id="fname" name="fid"><br><br>
             <label for="lname">Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="text" id="lname" name="lname"><br><br>
-            <label for="lpass">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="password" id="lpass" name="lpass"><br><br>
-            <label for="ldress">Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="text" id="ldress" name="ldress"><br><br>
             <label for="lmail">Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input type="email" id="lmail" name="lmail"><br><br>
+            <label for="ldress">Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="ldress" name="ldress"><br><br>
             <label for="lnum">Phone Number :</label>
-            <input type="text" id="lnum" name="lnum"><br><br><br>
+            <input type="text" id="lnum" name="lnum"><br><br>
+            <label for="lpass">Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="password" id="lpass" name="lpass"><br><br>
             <input type="submit" value="Create" >
         </form>
     </div>

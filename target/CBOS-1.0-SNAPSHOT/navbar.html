@@ -70,37 +70,31 @@
     </style>
 </head>
 <body>
-
 <div class="navbar">
-    <a href="#home">Logout</a>
-    <div class="dropdown">
-        <button class="dropbtn">Book
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="booklist.jsp">View Book List</a>
-            <a href="addbook.jsp">Add Book</a>
-            <a href="booklistedit.jsp">Book List Edit Staff</a>
-            <a href="delupdbook.jsp">Delete & Update Book</a>
-        </div>
-    </div>
-    <div class="dropdown">
-    <button class="dropbtn">Cart
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-        <a href="cart.jsp">Cart item</a>
-        <a href="viewbooktocart.jsp">View book cart</a>
-    </div>
-    </div>
-    <a href="#">History</a>
+    <a href="logoutStaff.jsp">Logout</a>
     <div class="dropdown">
         <button class="dropbtn">Account
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="delupduser.jsp">Delete & Update User</a>
-            <a href="delupdStff.jsp">Delete & Update Staff</a>
+            <a href="profileStaff.jsp">Profile</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Book
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="bookList.jsp">Book List</a>
+            <a href="addbook.jsp">Add Book</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Order
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="vieworderstaff.jsp">Order List</a>
         </div>
     </div>
     <div class="dropdown">
@@ -109,10 +103,9 @@
         </button>
         <div class="dropdown-content">
             <a href="paymentstatus.jsp">Payment Status</a>
-            <a href="uploadpayment.jsp">Upload Payment</a>
         </div>
     </div>
-    <a href="updatetrackingnum.jsp">Tracking Number</a>
+    <a href="trackingnum.jsp">Tracking Number</a>
 </div>
 </body>
 </html>

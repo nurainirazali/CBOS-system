@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 22/1/2022
@@ -39,6 +42,19 @@
   hr.solid {
     border-top: 3px solid #bbb;
   }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
 
 </style>
 
@@ -49,24 +65,44 @@
   <div class="container">
     <h1>Payment Status</h1>
     <br>
-    <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
       <table id="voteList" class="display" cellspacing="0" width="100%" >
-        <thead>
         <tr>
-          <th >No.</th>
+          <th >Payment ID</th>
           <th >Image</th>
           <th ></th>
         </tr>
-        </thead>
-        <tbody>
+        <tr>
+          <td> 10001</td>
+          <td><img src="http://cbos-postgres.herokuapp.com/upload/ELC091-Manual-.jpg"></td>
+          <td style="text-align: center;"><a href="paymentstatus.jsp"><button>Valid</button></a></td>
+        </tr>
+        <%
+          String staffid = (String)session.getAttribute("staffid");
+          String bookid = request.getParameter("id");
+          try{
+            Class.forName("org.postgresql.Driver");
+            String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+            String user = "qoyqwxbjtgaycf";
+            String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
+            Statement st = conn.createStatement();
+            ResultSet rs;
+            rs = st.executeQuery("select * from payments");
+            if (rs.next()){
+        %>
         <tr rowspan ="4" >
-          <td style="text-align: center;"><br><br>1</td>
-          <td style="text-align: center;"><br><br><img src="https://fastly.4sqi.net/img/general/600x600/6618565_GoMEBg2k_lBZIvhvNbMGTkRU9qwJFhcsS4rEzr5Gnoo.jpg"  style="width:250px;height:250px;"></td>
-          <td style="text-align: center;"><br><br><input type="submit" value="Approve" style="background-color:green; color:white;"></td>
+          <td style="text-align: center;"><br><br><%=rs.getInt("payment_id")%></td>
+          <td style="text-align: center;"><br><br><img src="<%=rs.getString("payment_evident")%>"  style="width:250px;height:250px;"></td>
+          <td style="text-align: center;"><br><br><a href="updatepayStat.jsp"><button>Valid</button></a></td>
         </tr >
-        </tbody>
       </table>
+      <%
+          }
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      %>
       <br><br>
       <hr class="solid">
       <br><br><br>

@@ -1,4 +1,7 @@
-<%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 22/1/2022
@@ -22,41 +25,25 @@
         border-radius: 5px;
         background-color: white;
         padding: 20px 0 30px 0;
-        width: 60%;
+        width: 90%;
         border: 2px grey;
         border-style:solid;
         height:auto;
     }
-
-    hr.solid {
-        border-top: 3px solid #bbb;
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
     }
 
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 200px;
-        margin: auto;
-        text-align: center;
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
     }
 
-    .price {
-        color: grey;
-        font-size: 18px;
-    }
-
-    .card button {
-        border: none;
-        outline: 0;
-        padding: 12px;
-        color: white;
-        background-color: #8CCBC8;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    .card button:hover {
-        opacity: 0.7;
+    tr:nth-child(even) {
+        background-color: #dddddd;
     }
 
 </style>
@@ -72,52 +59,57 @@
         <br>
         <input type="text" placeholder="Search.." style="margin-left: 75%; ">
         <br><br>
-        <hr class="solid"><br>
-        <table style="width:100%">
+        <%
+            String staffid = (String)session.getAttribute("staffid");
+            try{
+                Class.forName("org.postgresql.Driver");
+                String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+                String user = "qoyqwxbjtgaycf";
+                String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+                Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+                Statement st = conn.createStatement();
+                ResultSet rs;
+                rs = st.executeQuery("select * from BOOKS " );
+        %>
+        <table>
             <tr>
-                <td >
-                    <div class="card"><img src="https://ababooks.com.my/wp-content/uploads/2021/07/WhatsApp-Image-2021-07-12-at-3.03.32-PM-300x300.jpeg" alt="Denim Jeans" style="width:94px;height:92px;">
-                        <h2>ENT223</h2>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>View</button></p>
-                    </div>
-                </td>
-
-                <td >
-                    <div class="card"><img src="https://ababooks.com.my/wp-content/uploads/2021/10/Malaysian-Financial-Markets.gif" alt="Denim Jeans" style="width:94px;height:92px;">
-                        <h2>CTU123</h2>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>View</button></p>
-                    </div>
-                </td>
-
-                <td >
-                    <div class="card"><img src="https://ababooks.com.my/wp-content/uploads/2020/10/critical-reading-skills.gif" alt="Denim Jeans" style="width:94px;height:92px;">
-                        <h2>ELC332</h2>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>View</button></p>
-                    </div>
-                </td>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Stock</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Publish Date</th>
+                <th>Publisher</th>
+                <th>Description</th>
+                <th>Price (RM)</th>
+                <th>Cover</th>
+                <th>Control</th>
             </tr>
-
+            <% while(rs.next()){ %>
             <tr>
-                <td>
-                    <div class="card"><img src="https://ababooks.com.my/wp-content/uploads/2021/07/WhatsApp-Image-2021-07-12-at-3.02.56-PM-300x300.jpeg" alt="Denim Jeans" style="width:94px;height:92px;">
-                        <h2>ELC111</h2>
-                        <p class="price">$19.99</p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>View</button></p>
-                    </div>
-                </td>
+                <td> <%= rs.getInt("book_id") %></td>
+                <td> <%= rs.getString("book_title") %></td>
+                <td> <%= rs.getInt("book_stock") %></td>
+                <td> <%= rs.getString("book_author") %></td>
+                <td> <%= rs.getString("book_isbn") %></td>
+                <td> <%= rs.getDate("book_publishdate") %></td>
+                <td> <%= rs.getString("book_publisher") %></td>
+                <td> <%= rs.getString("book_description") %></td>
+                <td> <%= rs.getInt("book_price") %></td>
+                <td> <img src="<%=rs.getString("book_cover")%>"></td>
+
+                <td><a href="updateProBook.jsp?id=<%=rs.getString("book_id")%>"><button>Update</button></a>
+                    <a href="deleteProBook.jsp?id=<%=rs.getString("book_id")%>"><button>Delete</button></a></td>
+
             </tr>
+            <% }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            %>
         </table>
-        <br><br><br>
-        <br>
     </div>
-    <br><br>
 </center>
 </body>
 </html>

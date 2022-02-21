@@ -28,10 +28,10 @@ public class OrderServlet extends HttpServlet {
         try{
             String bookid = request.getParameter("id");
             String userid = (String)session.getAttribute("userid");
+            int price=Integer.parseInt(request.getParameter(""));
             int quan=Integer.parseInt(request.getParameter("lquan"));
             java.util.Date date = new java.util.Date();
             Date sqlDate = new Date(date.getTime());
-            int price=50;
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
