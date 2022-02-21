@@ -9,8 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String orderid= (String)session.getAttribute("orderid");
-
+    String userid = (String)session.getAttribute("userid");
     try{
         Class.forName("org.postgresql.Driver");
         String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -18,7 +17,7 @@
         String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
         Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-        String query="DELETE FROM orders WHERE order_id="+orderid;
+        String query="DELETE FROM cart WHERE user_id='"+userid+"'";
         PreparedStatement st= null;
         st = conn.prepareStatement(query);
         int row= st.executeUpdate();

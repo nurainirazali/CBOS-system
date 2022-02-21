@@ -61,16 +61,8 @@
             <tr>
                 <th>Order ID</th>
                 <th>Date</th>
-                <th>Book ID</th>
-                <th>Quantity</th>
+                <th>Book Title</th>
                 <th>Total Price (RM)</th>
-            </tr>
-            <tr>
-                <td> 1001</td>
-                <td> 2022-02-20</td>
-                <td> 100</td>
-                <td> 1</td>
-                <td> 40</td>
             </tr>
             <%
                 String userid = (String)session.getAttribute("userid");
@@ -83,19 +75,21 @@
 
                     Statement st = conn.createStatement();
                     ResultSet rs;
-                    rs = st.executeQuery("select * from orders " );
-                    while(rs.next()){ %>
+                    rs = st.executeQuery("select order_num, order_date, book_title, order_price, order_trackingnumber from orders o , orderbook ob, books b where o.order_id=ob.order_id AND ob.book_id=b.book_id and o.user_id='"+userid+"'" );
+                    while(rs.next()){
+                        if(rs.getString("order_trackingnumber")!= "1234"){
+            %>
             <tr>
-                <td> <%= rs.getInt("order_id") %></td>
+                <td> <%= rs.getInt("order_num") %></td>
                 <td> <%= rs.getDate("order_date") %></td>
-                <td> <%= rs.getInt("book_id") %></td>
-                <td> <%= rs.getInt("order_quan") %></td>
+                <td> <%= rs.getString("book_title") %></td>
                 <td> <%= rs.getInt("order_price") %></td>
             </tr>
-            <% }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            <%  }
+                    }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
             %>
         </table>
     </div>

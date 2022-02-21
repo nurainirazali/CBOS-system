@@ -26,13 +26,19 @@ public class OrderServlet extends HttpServlet {
         Part part;
 
         try{
-            String bookid = request.getParameter("fid");
+            int bookid = Integer.parseInt(request.getParameter("fid"));
             String userid = (String)session.getAttribute("userid");
             int price=Integer.parseInt(request.getParameter("lprice"));
             int quan=Integer.parseInt(request.getParameter("lquan"));
             java.util.Date date = new java.util.Date();
             Date sqlDate = new Date(date.getTime());
             int totprice=price*quan;
+            String track="1234";
+
+            System.out.println(bookid);
+            System.out.println(userid);
+            System.out.println(price);
+            System.out.println(quan);
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -40,12 +46,10 @@ public class OrderServlet extends HttpServlet {
             String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-            st = conn.prepareStatement("insert into orders (order_id, order_date, order_price, book_id, user_id, order_quan) values (nextval('order_sequence'),?,?,?,?,?)");
-            st.setDate(1,sqlDate);
-            st.setInt(2,totprice);
-            st.setString(3, bookid);
-            st.setString(4, userid);
-            st.setInt(5,quan);
+            st = conn.prepareStatement("insert into cart (cart_id, cart_quantity, user_id, book_id) values (nextval('cart_sequence'),?,?,?)");
+            st.setInt(1,quan);
+            st.setString(2,userid);
+            st.setInt(3, bookid);
             int count1 = st.executeUpdate();
 
             if(count1>0)

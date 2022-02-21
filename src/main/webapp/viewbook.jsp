@@ -56,18 +56,20 @@
                 rs = st.executeQuery("select * from BOOKS where book_id='"+bookid+"'" );
                 while(rs.next()){
         %>
-        <form method="post" action="OrderServlet" enctype="multipart/form-data">
+
         <div class="card">
-            <input type="hidden"  name="fid" value="<%=rs.getInt("book_id")%>">
-            <input type="hidden" name="lprice" value="<%=rs.getInt("book_price")%>">
             <img src="<%=rs.getString("book_cover")%>"style="width:35%">
             <h2><%= rs.getString("book_title") %></h2>
             <p class="price">Price: RM <%= rs.getInt("book_price") %></p>
             <p>Author: <%= rs.getString("book_author") %></p>
             <p><%= rs.getString("book_description") %></p>
-            <label for="lquan">Quantity :</label>
-            <input type="number" id="lquan" name="lquan" style="width: 50px;"><label> pcs </label>
-            <p><button>Add to Cart</button></p>
+            <form method="post" action="OrderServlet">
+                <input type="hidden"  name="fid" value="<%=rs.getInt("book_id")%>"/>
+                <input type="hidden" name="lprice" value="<%=rs.getInt("book_price")%>"/>
+                <label for="lquan">Quantity :</label>
+                <input type="number" id="lquan" name="lquan" style="width: 50px;"><label> pcs </label>
+                <p><button>Add to Cart</button></p>
+            </form>
         </div>
         <%
                 }
@@ -75,7 +77,6 @@
                 e.printStackTrace();
             }
         %>
-        </form>
     </div>
 </center>
 </body>

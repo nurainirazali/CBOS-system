@@ -55,11 +55,6 @@
           <th>Order Id</th>
           <th>Tracking Number</th>
         </tr>
-        <tr>
-          <td style="text-align: center;">1001</td>
-          <td style="text-align: center;"><input type="text" id="tracking1" name="tracking">
-            <button>Update</button></td>
-        </tr>
         <%
           String staffid = (String)session.getAttribute("staffid");
           String bookid = request.getParameter("id");
@@ -73,23 +68,25 @@
             Statement st = conn.createStatement();
             ResultSet rs;
             rs = st.executeQuery("select * from orders");
-            if (rs.next()){
+            while(rs.next()){
         %>
         <tr rowspan ="4">
-          <td style="text-align: center;"><%=rs.getInt("order_id")%></td>
-          <td style="text-align: center;">
+          <td style="text-align: center;"><%=rs.getInt("order_num")%></td>
+          <td>
             <form action="updatetracknum.jsp">
+              <input type="hidden" name="orderid" value="<%=rs.getInt("order_id")%>">
               <input type="text" id="tracking" name="tracking">
               <button>Update</button>
-            </form></td>
+            </form>
+          </td>
         </tr>
-      </table>
-      <%
+        <%
+            }
+          } catch (Exception e) {
+            e.printStackTrace();
           }
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      %>
+        %>
+      </table>
     </div>
     <br><br>
   </div>

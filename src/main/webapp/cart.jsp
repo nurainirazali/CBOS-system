@@ -52,9 +52,18 @@
         <br>
         <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
             <table class="display" cellspacing="0" width="100%" >
+                <tr>
+                    <th>Book Title</th>
+                    <th>Quantity</th>
+                    <th>Price (RM)</th>
+                    <th>Total Price (RM)</th>
+                </tr>
                 <%
+                    int grantot=0;
+                    int ship=5;
+                    int tax=1;
+                    int totlast=0;
                     String userid = (String)session.getAttribute("userid");
-                    String bookid = request.getParameter("id");
                     try{
                         Class.forName("org.postgresql.Driver");
                         String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -64,16 +73,21 @@
 
                         Statement st = conn.createStatement();
                         ResultSet rs;
-                        rs = st.executeQuery("select b.book_cover, b.book_title, o.order_id, o.order_price, o.order_quan " +
-                                "from BOOKS b  inner join orders o ON book_id='"+bookid+"'" );
-                    if (rs.next()){
+                        rs = st.executeQuery("select * " +
+                                "from BOOKS b  inner join cart c ON c.book_id=b.book_id AND c.user_id='"+userid+"'");
+                    while (rs.next()){
                 %>
                 <tr rowspan ="4" >
-                    <td style="text-align: center;"><br><br><%=rs.getInt("order_id")%></td>
-                    <td style="text-align: center;"><br><br><a href="<%=rs.getString("book_cover")%>"></a></td>
                     <td style="text-align: center;"><br><br><%=rs.getString("book_title")%></td>
+                    <td style="text-align: center;"><br><br><%=rs.getInt("cart_quantity")%></td>
                     <td style="text-align: center;"><br><br><%=rs.getInt("book_price")%></td>
-                    <td style="text-align: center;"><br><br><%=rs.getInt("order_quan")%></td>
+                    <%
+                        int price=rs.getInt("book_price");
+                        int totprice=price*rs.getInt("cart_quantity");
+                        grantot=grantot+totprice;
+                        totlast=grantot+tax+ship;
+                    %>
+                    <td style="text-align: center;"><br><br><%=totprice%></td>
                 </tr >
                 <%
                         }
@@ -81,24 +95,20 @@
                         e.printStackTrace();
                     }
                 %>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Book Image</th>
-                    <th>Book Title</th>
-                    <th>Price (RM)</th>
-                    <th>Quantity</th>
-                </tr>
             </table>
             <br><br><br>
             <hr class="solid">
-            <a style="margin-left: 45%; ">Sub Total: </a><br>
-            <a style="margin-left: 45%; ">Tax (5%): </a><br>
-            <a style="margin-left: 45%; ">Shipping: </a><br>
-            <a style="margin-left: 45%; ">Grand Total (RM): </a>
+            <a style="margin-left: 45%; ">Sub Total: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=grantot%></a><br>
+            <a style="margin-left: 45%; ">Tax (5%):  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=tax%></a><br>
+            <a style="margin-left: 45%; ">Shipping:  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=ship%></a><br>
+            <a style="margin-left: 45%; ">Grand Total (RM): <%=totlast%></a>
             <hr class="solid">
             <br>
-            <a href="uploadpayment.jsp?"><button>CheckOut</button></a>&nbsp;
-            <a href="cancelorder.jsp?"><button>Cancel Order</button></a>
+            <form action="OrderConfirmServlet" method="post">
+                <input type="hidden" name="totalprice" value="<%=totlast%>">
+                <button>Confirm</button>
+            </form>
+            <a href="cancelorder.jsp"><button>Cancel Order</button></a>
         </div>
         <br><br>
     </div>

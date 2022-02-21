@@ -9,6 +9,11 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 @WebServlet(name = "PaymentServlet", value = "/PaymentServlet")
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+        maxFileSize = 1024 * 1024 * 10, // 10MB
+        maxRequestSize = 1024 * 1024 * 50
+)
 public class PaymentServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +31,8 @@ public class PaymentServlet extends HttpServlet {
         Part part;
 
         try{
-            String orderid= (String)session.getAttribute("orderid");
+            int orderid=Integer.parseInt(request.getParameter("orderid"));
+            String status="Pending";
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -63,8 +69,9 @@ public class PaymentServlet extends HttpServlet {
                 return;
             }
 
-            st = conn.prepareStatement("insert into payments (payment_id, order_id, payment_evident) values (nextval('payment_sequence'),?,?,?)");
-            st.setString(2,orderid);
+            st = conn.prepareStatement("insert into payments (payment_id, order_id, payment_status, payment_evident) values (nextval('payment_sequence'),?,?,?)");
+            st.setInt(1,orderid);
+            st.setString(2,status);
             st.setString(3,urlPathForDB);
             int count = st.executeUpdate();
 

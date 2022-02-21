@@ -9,9 +9,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String staffid = (String)session.getAttribute("staffid");
-    String bookid = request.getParameter("id");
-    int orderid = Integer.parseInt(request.getParameter("orderid"));
     int payid = Integer.parseInt(request.getParameter("payid"));
+    String stat ="Verified";
 
     try{
         Class.forName("org.postgresql.Driver");
@@ -23,6 +22,7 @@
         String query="update payments set payment_status=? where payment_id='"+payid+"'";
         PreparedStatement st= null;
         st = conn.prepareStatement(query);
+        st.setString(1, stat);
         int row= st.executeUpdate();//return no of row effected
 
         if(row>0){
@@ -31,8 +31,6 @@
             dispatcher.forward (request, response);
         }else{
             out.println("Record failed");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("paymentstatus.jsp");
-            dispatcher.forward (request, response);
         }
 
     }catch (Exception e){

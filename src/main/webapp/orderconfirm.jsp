@@ -5,7 +5,7 @@
   Created by IntelliJ IDEA.
   User: User
   Date: 22/1/2022
-  Time: 12:22 PM
+  Time: 12:26 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -42,39 +42,28 @@
   hr.solid {
     border-top: 3px solid #bbb;
   }
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 80%;
-  }
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-
 </style>
-
 <body style="background-color:#D7EAE8;">
-<%@include file="navbar.html"%>
+<%@include file="navbaruser.html"%>
 <br>
 <center>
   <div class="container">
-    <h1>Payment Status</h1>
+    <h1>Cart</h1>
     <br>
-      <table id="voteList" class="display" cellspacing="0" width="100%" >
+    <div class="frame" style="margin: 0px 20px; border-radius: 0px 0px 10px 10px;">
+      <table class="display" cellspacing="0" width="100%" >
         <tr>
-          <th >Payment ID</th>
-          <th >Image</th>
-          <th >Status</th>
-          <th ></th>
+          <th>Order ID</th>
+          <th></th>
+          <th>Price (RM)</th>
+          <th>Total Price (RM)</th>
         </tr>
         <%
-          String staffid = (String)session.getAttribute("staffid");
-          String bookid = request.getParameter("id");
+          int grantot=0;
+          int ship=5;
+          int tax=1;
+          int totlast=0;
+          String userid = (String)session.getAttribute("userid");
           try{
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
@@ -84,29 +73,39 @@
 
             Statement st = conn.createStatement();
             ResultSet rs;
-            rs = st.executeQuery("select * from payments");
+            rs = st.executeQuery("select * " +
+                    "from BOOKS b  inner join cart c ON c.book_id=b.book_id AND c.user_id='"+userid+"'");
             while (rs.next()){
         %>
         <tr rowspan ="4" >
-
-          <td style="text-align: center;"><br><br><%=rs.getInt("payment_id")%></td>
-          <td style="text-align: center;"><br><br><img src="<%=rs.getString("payment_evident")%>"  style="width:250px;height:250px;"></td>
-          <td style="text-align: center;"><%=rs.getString("payment_status")%></td>
-          <form method="post" action="updatepayStat.jsp">
-            <input type="hidden" name="payid" value="<%=rs.getInt("payment_id")%>">
-            <td style="text-align: center;"><br><br><button>Valid</button></td>
-          </form>
+          <td style="text-align: center;"><br><br><%=rs.getString("book_title")%></td>
+          <td style="text-align: center;"><br><br><%=rs.getInt("cart_quantity")%></td>
+          <td style="text-align: center;"><br><br><%=rs.getInt("book_price")%></td>
+          <%
+            int price=rs.getInt("book_price");
+            int totprice=price*rs.getInt("cart_quantity");
+            grantot=grantot+totprice;
+            totlast=grantot+tax+ship;
+          %>
+          <td style="text-align: center;"><br><br><%=totprice%></td>
         </tr >
-      </table>
-      <%
+        <%
+            }
+          } catch (Exception e) {
+            e.printStackTrace();
           }
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      %>
-      <br><br>
-      <hr class="solid">
+        %>
+      </table>
       <br><br><br>
+      <hr class="solid">
+      <a style="margin-left: 45%; ">Sub Total: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=grantot%></a><br>
+      <a style="margin-left: 45%; ">Tax (5%):  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=tax%></a><br>
+      <a style="margin-left: 45%; ">Shipping:  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=ship%></a><br>
+      <a style="margin-left: 45%; ">Grand Total (RM): <%=totlast%></a>
+      <hr class="solid">
+      <br>
+      <a href="orderconfirm.jsp"><button>Confirm</button></a>&nbsp;
+      <a href="cancelorder.jsp"><button>Cancel Order</button></a>
     </div>
     <br><br>
   </div>

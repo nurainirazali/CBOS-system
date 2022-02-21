@@ -65,15 +65,37 @@
             </table>
             <br><br><br>
             <hr class="solid">
-            <a>Total:RM 50</a><br>
+            <%
+                String userid = (String)session.getAttribute("userid");
+                String bookid = request.getParameter("id");
+                try{
+                    Class.forName("org.postgresql.Driver");
+                    String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";
+                    String user = "qoyqwxbjtgaycf";
+                    String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
+                    Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+                    Statement st = conn.createStatement();
+                    ResultSet rs;
+                    rs = st.executeQuery("select * from orders where user_id='"+userid+"'");
+                    if (rs.next()){
+            %>
+            <a>Total: RM <%=rs.getInt("order_price")%></a><br>
             <hr class="solid">
             <br>
             <p style="background-color:red; color:white;">Please screenshot or capture the payment receipt as an evidence to be upload</p>
-            <form method="post" action="PaymentServlet">
+            <form method="post" action="PaymentServlet" enctype="multipart/form-data">
+                <input type="hidden" name="orderid" value="<%=rs.getInt("order_id")%>">
                 <label for="myFile">Upload Payment Evidence :</label>
                 <input type="file" id="myFile" name="payimage" accept="image/jpeg, image/png, image/jpg">
                 <button>Submit</button>
             </form>
+            <%
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            %>
         </div>
         <br><br>
     </div>

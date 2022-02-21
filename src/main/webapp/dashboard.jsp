@@ -95,8 +95,8 @@
             <td> <%= rs.getString("book_isbn") %></td>
             <td> <%= rs.getDate("book_publishdate") %></td>
             <td> <%= rs.getString("book_publisher") %></td>
-            <td> <%= rs.getString("book_description") %></td>
             <td> <%= rs.getInt("book_price") %></td>
+            <td> <%= rs.getString("book_description") %></td>
             <td><a href="viewbook.jsp?id=<%=rs.getString("book_id")%>"><button>View</button></a></td>
         </tr>
         <% }
