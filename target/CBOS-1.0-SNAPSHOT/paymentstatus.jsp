@@ -69,12 +69,8 @@
         <tr>
           <th >Payment ID</th>
           <th >Image</th>
+          <th >Status</th>
           <th ></th>
-        </tr>
-        <tr>
-          <td> 10001</td>
-          <td><img src="http://cbos-postgres.herokuapp.com/upload/ELC091-Manual-.jpg"></td>
-          <td style="text-align: center;"><a href="paymentstatus.jsp"><button>Valid</button></a></td>
         </tr>
         <%
           String staffid = (String)session.getAttribute("staffid");
@@ -89,12 +85,17 @@
             Statement st = conn.createStatement();
             ResultSet rs;
             rs = st.executeQuery("select * from payments");
-            if (rs.next()){
+            while (rs.next()){
         %>
         <tr rowspan ="4" >
+
           <td style="text-align: center;"><br><br><%=rs.getInt("payment_id")%></td>
           <td style="text-align: center;"><br><br><img src="<%=rs.getString("payment_evident")%>"  style="width:250px;height:250px;"></td>
-          <td style="text-align: center;"><br><br><a href="updatepayStat.jsp"><button>Valid</button></a></td>
+          <td style="text-align: center;"><%=rs.getString("payment_status")%></td>
+          <form method="post" action="updatepayStat.jsp">
+            <input type="hidden" name="payid" value="<%=rs.getInt("payment_id")%>">
+            <td style="text-align: center;"><br><br><button>Valid</button></td>
+          </form>
         </tr >
       </table>
       <%
