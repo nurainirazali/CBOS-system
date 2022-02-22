@@ -88,7 +88,6 @@
             while (rs.next()){
         %>
         <tr rowspan ="4" >
-
           <td style="text-align: center;"><br><br><%=rs.getInt("payment_id")%></td>
           <td style="text-align: center;"><br><br><img src="<%=rs.getString("payment_evident")%>"  style="width:250px;height:250px;"></td>
           <td style="text-align: center;"><%=rs.getString("payment_status")%></td>
@@ -97,13 +96,13 @@
             <td style="text-align: center;"><br><br><button>Valid</button></td>
           </form>
         </tr >
-      </table>
-      <%
+        <%
+            }
+          } catch (Exception e) {
+            e.printStackTrace();
           }
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      %>
+        %>
+      </table>
       <br><br>
       <hr class="solid">
       <br><br><br>

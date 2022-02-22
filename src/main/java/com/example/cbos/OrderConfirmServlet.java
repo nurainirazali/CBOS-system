@@ -35,7 +35,7 @@ public class OrderConfirmServlet extends HttpServlet {
             int totprice=Integer.parseInt(request.getParameter("totalprice"));
             java.util.Date date = new java.util.Date();
             Date sqlDate = new Date(date.getTime());
-            String track="1234";
+            String track=" ";
 
             Class.forName("org.postgresql.Driver");
             String dbURL = "jdbc:postgresql://ec2-3-212-143-188.compute-1.amazonaws.com:5432/ddn4nslo8pnje3";

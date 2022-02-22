@@ -63,16 +63,8 @@
                 <th>Date</th>
                 <th>Book ID</th>
                 <th>Quantity</th>
+                <th>Price</th>
                 <th>Total Price (RM)</th>
-                <th>Tracking Number</th>
-            </tr>
-            <tr>
-                <td>1001</td>
-                <td>2022-02-20</td>
-                <td>100</td>
-                <td>1</td>
-                <td>40</td>
-                <td>MY52345436143</td>
             </tr>
             <%
                 String staffid = (String)session.getAttribute("staffid");
@@ -85,15 +77,16 @@
 
                     Statement st = conn.createStatement();
                     ResultSet rs;
-                    rs = st.executeQuery("select * from orders " );
-                    while(rs.next()){ %>
+                    rs = st.executeQuery("select * from orders o , orderbook ob, books b where o.order_id=ob.order_id AND ob.book_id=b.book_id" );
+                    while(rs.next()){
+            %>
             <tr>
-                <td> <%= rs.getInt("order_id") %></td>
+                <td> <%= rs.getInt("order_num") %></td>
                 <td> <%= rs.getDate("order_date") %></td>
                 <td> <%= rs.getInt("book_id") %></td>
-                <td> <%= rs.getInt("order_quan") %></td>
-                <td> <%= rs.getInt("order_price") %></td>
-                <td> <%= rs.getString("order_trackingnumber") %></td>
+                <td> <%= rs.getInt("ob_quantity")%></td>
+                <td> <%= rs.getInt("book_price") %></td>
+                <td> <%= rs.getInt("order_price")%></td>
             </tr>
             <% }
             } catch (Exception e) {

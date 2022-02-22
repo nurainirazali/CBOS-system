@@ -30,10 +30,6 @@ public class OrderServlet extends HttpServlet {
             String userid = (String)session.getAttribute("userid");
             int price=Integer.parseInt(request.getParameter("lprice"));
             int quan=Integer.parseInt(request.getParameter("lquan"));
-            java.util.Date date = new java.util.Date();
-            Date sqlDate = new Date(date.getTime());
-            int totprice=price*quan;
-            String track="1234";
 
             System.out.println(bookid);
             System.out.println(userid);
