@@ -114,8 +114,8 @@
             <hr class="solid">
             <br>
             <form action="OrderConfirmServlet" method="post">
-                <input type="hidden" name="bookstock" value="<%=bookstock%>">;
-                <input type="hidden" name="bookid" value="<%=bookid%>">;
+                <input type="hidden" name="bookstock" value="<%=bookstock%>">
+                <input type="hidden" name="bookid" value="<%=bookid%>">
                 <input type="hidden" name="cartquan" value="<%=cartquan%>">
                 <input type="hidden" name="totalprice" value="<%=totlast%>">
                 <button>Confirm</button>
