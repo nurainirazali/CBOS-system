@@ -58,7 +58,7 @@
         %>
 
         <div class="card">
-            <img src="<%=rs.getString("book_cover")%>"style="width:35%">
+            <img src="<%=rs.getString("book_cover")%>"style="width:154px;height:152px;">
             <h2><%= rs.getString("book_title") %></h2>
             <p class="price">Price: RM <%= rs.getInt("book_price") %></p>
             <p>Author: <%= rs.getString("book_author") %></p>

@@ -97,7 +97,7 @@
             <td> <%= rs.getString("book_publisher") %></td>
             <td> <%= rs.getInt("book_price") %></td>
             <td> <%= rs.getString("book_description") %></td>
-            <td><a href="viewbook.jsp?id=<%=rs.getString("book_id")%>"><button>View</button></a></td>
+            <td><a href="viewbook.jsp?id=<%=rs.getString("book_id")%>" style="width:154px;height:152px;"><button>View</button></a></td>
         </tr>
         <% }
             } catch (Exception e) {
