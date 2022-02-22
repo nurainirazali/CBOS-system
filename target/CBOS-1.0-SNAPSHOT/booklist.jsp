@@ -98,7 +98,7 @@
                 <td> <%= rs.getString("book_publisher") %></td>
                 <td> <%= rs.getString("book_description") %></td>
                 <td> <%= rs.getInt("book_price") %></td>
-                <td> <img src="<%=rs.getString("book_cover")%>"></td>
+                <td> <img src="<%=rs.getString("book_cover")%>" style="width:154px;height:152px;"></td>
 
                 <td><a href="updateProBook.jsp?id=<%=rs.getString("book_id")%>"><button>Update</button></a>
                     <a href="deleteProBook.jsp?id=<%=rs.getString("book_id")%>"><button>Delete</button></a></td>
