@@ -33,7 +33,7 @@
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
-        width: 80%;
+        width: auto;
     }
 
     td, th {
@@ -72,6 +72,7 @@
                 ResultSet rs;
                 rs = st.executeQuery("select * from BOOKS " );
         %>
+        <div style="overflow-x: auto;">
         <table>
             <tr>
                 <th>Book ID</th>
@@ -109,6 +110,7 @@
             }
             %>
         </table>
+        </div>
     </div>
 </center>
 </body>
