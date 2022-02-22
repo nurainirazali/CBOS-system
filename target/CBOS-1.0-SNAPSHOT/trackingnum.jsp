@@ -73,7 +73,7 @@
         <tr rowspan ="4">
           <td style="text-align: center;"><%=rs.getInt("order_num")%></td>
           <td>
-            <form action="updatetracknum.jsp">
+            <form action="updatetracknum.jsp" style="text-align: center">
               <input type="hidden" name="orderid" value="<%=rs.getInt("order_id")%>">
               <input type="text" id="tracking" name="tracking">
               <button>Update</button>

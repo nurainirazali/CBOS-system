@@ -77,7 +77,6 @@
                     ResultSet rs;
                     rs = st.executeQuery("select order_num, order_date, book_title, order_price, order_trackingnumber from orders o , orderbook ob, books b where o.order_id=ob.order_id AND ob.book_id=b.book_id and o.user_id='"+userid+"'" );
                     while(rs.next()){
-                        if(rs.getString("order_trackingnumber")!= "1234"){
             %>
             <tr>
                 <td> <%= rs.getInt("order_num") %></td>
@@ -85,7 +84,7 @@
                 <td> <%= rs.getString("book_title") %></td>
                 <td> <%= rs.getInt("order_price") %></td>
             </tr>
-            <%  }
+            <%
                     }
                     } catch (Exception e) {
                         e.printStackTrace();
