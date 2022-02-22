@@ -56,7 +56,7 @@
 <center>
     <br>
     <div class="container">
-        <h1>Click Us Book System</h1>
+        <h1>ClickUs Book System</h1>
         <%
         String userid = (String)session.getAttribute("userid");
         try{
@@ -70,7 +70,8 @@
           ResultSet rs;
           rs = st.executeQuery("select * from BOOKS " );
         %>
-        <input type="text" placeholder="Search.." style="margin-left: 75%; "><br><br>
+       <br><br>
+        <div style="overflow-x: auto;">
     <table id="booklist">
         <tr>
             <th>Book ID</th>
@@ -88,7 +89,7 @@
         <% while(rs.next()){ %>
         <tr>
             <td> <%= rs.getInt("book_id") %></td>
-            <td> <img src="<%=rs.getString("book_cover")%>"></td>
+            <td> <img src="<%=rs.getString("book_cover")%>" style="width:154px;height:152px;"></td>
             <td> <%= rs.getString("book_title") %></td>
             <td> <%= rs.getInt("book_stock") %></td>
             <td> <%= rs.getString("book_author") %></td>
@@ -105,6 +106,7 @@
             }
         %>
     </table>
+        </div>
 </center>
 </body>
 </html>
