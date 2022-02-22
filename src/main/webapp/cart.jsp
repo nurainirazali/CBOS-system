@@ -99,7 +99,7 @@
             <br><br><br>
             <hr class="solid">
             <a style="margin-left: 45%; ">Sub Total: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=grantot%></a><br>
-            <a style="margin-left: 45%; ">Tax (5%):  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=tax%></a><br>
+            <a style="margin-left: 45%; ">Tax :  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=tax%></a><br>
             <a style="margin-left: 45%; ">Shipping:  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<%=ship%></a><br>
             <a style="margin-left: 45%; ">Grand Total (RM): <%=totlast%></a>
             <hr class="solid">
