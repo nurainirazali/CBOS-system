@@ -33,6 +33,9 @@ public class OrderConfirmServlet extends HttpServlet {
         try{
             String userid = (String)session.getAttribute("userid");
             int totprice=Integer.parseInt(request.getParameter("totalprice"));
+            int cartquantity=Integer.parseInt(request.getParameter("cartquan"));
+            int bookid2=Integer.parseInt(request.getParameter("bookid"));
+            int bookstock2=Integer.parseInt(request.getParameter("bookstock"));
             java.util.Date date = new java.util.Date();
             Date sqlDate = new Date(date.getTime());
             String track=" ";
@@ -49,6 +52,13 @@ public class OrderConfirmServlet extends HttpServlet {
             while (rs5.next()){
                 ordernum=rs5.getInt(1);
                 ordernum=ordernum+1000;
+
+                int booklatest=0;
+                booklatest=bookstock2-cartquantity;
+                PreparedStatement st6=null;
+                st6=conn.prepareStatement("update books set book_stock=? where book_id='"+bookid2+"'");
+                st6.setInt(1,booklatest);
+                st6.executeUpdate();
 
                 st = conn.prepareStatement("insert into orders (order_id,order_date, order_price, order_trackingnumber, user_id, order_num) values (default,?,?,?,?,?)");
                 st.setDate(1,sqlDate);

@@ -63,6 +63,11 @@
                     int ship=5;
                     int tax=1;
                     int totlast=0;
+                    int bookstock=0;
+                    int bookid=0;
+                    int cartquan=0;
+
+
                     String userid = (String)session.getAttribute("userid");
                     try{
                         Class.forName("org.postgresql.Driver");
@@ -76,6 +81,10 @@
                         rs = st.executeQuery("select * " +
                                 "from BOOKS b  inner join cart c ON c.book_id=b.book_id AND c.user_id='"+userid+"'");
                     while (rs.next()){
+                        bookstock=rs.getInt("book_stock");
+                        bookid=rs.getInt("book_id");
+                        cartquan=rs.getInt("cart_quantity");
+
                 %>
                 <tr rowspan ="4" >
                     <td style="text-align: center;"><br><br><%=rs.getString("book_title")%></td>
@@ -105,6 +114,9 @@
             <hr class="solid">
             <br>
             <form action="OrderConfirmServlet" method="post">
+                <input type="hidden" name="bookstock" value="<%=bookstock%>">;
+                <input type="hidden" name="bookid" value="<%=bookid%>">;
+                <input type="hidden" name="cartquan" value="<%=cartquan%>">
                 <input type="hidden" name="totalprice" value="<%=totlast%>">
                 <button>Confirm</button>
             </form>
