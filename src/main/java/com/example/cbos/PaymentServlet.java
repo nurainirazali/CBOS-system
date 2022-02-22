@@ -78,7 +78,7 @@ public class PaymentServlet extends HttpServlet {
             if(count>0)
             {
                 out.println("insert successfully");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("dashboard.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("vieworder.jsp");
                 dispatcher.forward (request, response);
             }
             else
