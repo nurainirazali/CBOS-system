@@ -108,14 +108,14 @@
             <br><br><br>
             <hr class="solid">
             <a style="margin-left: 45%; ">Sub Total: &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<%=grantot%></a><br>
-            <a style="margin-left: 45%; ">Tax :  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=tax%></a><br>
-            <a style="margin-left: 45%; ">Shipping:  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<%=ship%></a><br>
+            <a style="margin-left: 45%; ">Tax :  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=tax%></a><br>
+            <a style="margin-left: 45%; ">Shipping:  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<%=ship%></a><br>
             <a style="margin-left: 45%; ">Grand Total (RM): <%=totlast%></a>
             <hr class="solid">
             <br>
             <form action="OrderConfirmServlet" method="post">
-                <input type="hidden" name="bookstock" value="<%=bookstock%>">;
-                <input type="hidden" name="bookid" value="<%=bookid%>">;
+                <input type="hidden" name="bookstock" value="<%=bookstock%>">
+                <input type="hidden" name="bookid" value="<%=bookid%>">
                 <input type="hidden" name="cartquan" value="<%=cartquan%>">
                 <input type="hidden" name="totalprice" value="<%=totlast%>">
                 <button>Confirm</button>

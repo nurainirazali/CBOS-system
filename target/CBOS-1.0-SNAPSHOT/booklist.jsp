@@ -56,8 +56,6 @@
 <center>
     <div class="container">
         <h1>Book List</h1>
-        <br>
-        <input type="text" placeholder="Search.." style="margin-left: 75%; ">
         <br><br>
         <%
             String staffid = (String)session.getAttribute("staffid");

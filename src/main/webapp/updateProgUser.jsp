@@ -23,7 +23,7 @@
         String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
         Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-        String query="update USERS set user_id=?, USER_NAME=?, USER_PASSWORD=?, USER_EMAIL=?, USER_PHONENUMBER=?, USER_ADDRESS=? where USER_ID='"+usrfid+"'";
+        String query="update USERS set user_id=?, USER_NAME=?, USER_EMAIL=?, USER_ADDRESS=?, USER_PHONENUMBER=?, USER_PASSWORD=? where USER_ID='"+usrfid+"'";
         PreparedStatement st= null;
         st = conn.prepareStatement(query);
         st.setString(1,userid);
