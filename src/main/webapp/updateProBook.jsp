@@ -90,7 +90,7 @@
             %>
         <form action="updateProgBook.jsp" method="post">
             <div>
-                <b>Note : Book Id cannot be change</b>
+                <b>Note : Book Id cannot be change</b><br><br>
                 Book Id : <input type="text" name="fid" value="<%=rs.getString("book_id")%>"><br><br>
                 Title : <input type="text" name="ltitle" value="<%=rs.getString("book_title")%>"><br><br>
                 Stock : <input type="number" name="lstock" value="<%=rs.getString("book_stock")%>"><br><br>
