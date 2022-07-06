@@ -17,7 +17,7 @@
         String pass = "4114ea71f4f849e6cd6d107aefe44df92996eeea835a25ef81cd9869307cd3ff";
         Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-        String query="DELETE FROM USERS WHERE USER_ID='"+userid+"'";
+        String query="DELETE FROM USERS WHERE user_id='"+userid+"'";
         PreparedStatement st= null;
         st = conn.prepareStatement(query);
         int row= st.executeUpdate();
